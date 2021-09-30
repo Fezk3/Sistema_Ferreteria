@@ -5,6 +5,8 @@
 from cliente import Cliente
 from producto import Producto
 
+from listadouble import ListaDobleEnlazada
+
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
@@ -12,5 +14,14 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    leche = Producto("Leche", 78, 900)
-    print(leche.nombre, leche.id, leche.precio)
+
+    lista = ListaDobleEnlazada()
+    lista.agregar(1)
+    lista.agregar(88)
+    lista.agregar(789)
+    print(lista.__repr__())
+    print("Eliminando")
+    lista.eliminar(0)
+    print(lista.__repr__())
+    lista.insertar(777, 2)
+    print(lista.__repr__())
