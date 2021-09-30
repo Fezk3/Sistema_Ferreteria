@@ -1,88 +1,95 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
+class Nodo:
+    def __init__(self, dato = None):
+        self.dato = dato
+        self.anterior = self
+        self.siguiente = self
 
+class DCLL:
+    def __init__(self):
+        self.dato = dato
+        self.anterior = self
+        self.siguiente = self
 
+    def __repr__(self):
+        string = ""
 
-def insertEnd(value):
-    global start
+        if (self.ini is None):
+            string += "La lista esta vacia"
+            return string
 
-    if (start == None):
-        new_node = Node(0)
-        new_node.data = value
-        new_node.next = new_node.prev = new_node
-        start = new_node
+        string += f"Lista:\n{self.ini.da}"
+        actual = self.ini.siguiente
+        while (actual != self.ini):
+            string += f" -> {actual.dato}"
+            actual = actual.siguiente
+        return string
+
+    def agregar(self, dato):
+        self.insert(dato, self.cont)
         return
 
-    last = (start).prev
+    def insertar(self, dato, num):
+        if (num > self.cont) | (num < 0):
+            raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
+        if self.ini is None:
+            self.ini = Node(dato)
+            self.cont = 1
+            return
 
-    new_node = Node(0)
-    new_node.data = value
+        actual = self.ini
+        if (num is 0):
+            actual = actual.anterior
+        else:
+            for _ in range(num - 1):
+                actual = actual.siguiente
 
-    new_node.next = start
+        actual.siguiente.anterior = Node(dato)
+        actual.siguiente.anterior.siguiente, actual.siguiente.anterior.anterior = actual.siguiente, actual
+        actual.siguiente = actual.siguiente.anterior
+        if (num is 0):
+            self.ini = self.ini.anterior
+        self.cont += 1
+        return
 
-    (start).prev = new_node
+    def eliminar(self, num):
+        if (num >= self.cont) | (num < 0):
+            raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
-    new_node.prev = last
+        if self.cont is 1:
+            self.ini = None
+            self.cont = 0
+            return
 
-    last.next = new_node
+        target = self.ini
+        for _ in range(num):
+            target = target.siguiente
 
+        if target is self.ini:
+            self.ini = self.ini.siguiente
 
-def insertBegin(value):
-    global start
+        target.anterior.siguiente, target.siguiente.anterior = target.siguiente, target.anterior
+        self.cont -= 1
 
+    def num(self, dato):
+        actual = self.ini
+        for i in range(self.cont):
+            if (actual.dato is dato):
+                return i
+            actual = actual.siguiente
+        return None
 
-    last = (start).prev
+    def get(self, num):
+        if (num >= self.cont) | (num < 0):
+            raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
-    new_node = Node(0)
-    new_node.data = value
+        actual = self.ini
+        for _ in range(num):
+            actual = actual.siguiente
+        return actual.dato
 
-    new_node.next = start
-    new_node.prev = last
+    def size(self):
+        return self.cont
 
-    last.next = (start).prev = new_node
-
-
-    start = new_node
-
-
-def insertAfter(value1, value2):
-    global start
-    new_node = Node(0)
-    new_node.data = value1
-
-
-    temp = start
-    while (temp.data != value2):
-        temp = temp.next
-    next = temp.next
-
-
-    temp.next = new_node
-    new_node.prev = temp
-    new_node.next = next
-    next.prev = new_node
-
-
-def display():
-    global start
-    temp = start
-
-
-    while (temp.next != start):
-        print(temp.data, end=" ")
-        temp = temp.next
-
-    print(temp.data)
-
-    
-    last = start.prev
-    temp = last
-    while (temp.prev != last):
-        print(temp.data, end=" ")
-        temp = temp.prev
-
-    print(temp.data)
+    def display(self):
+        print(self)
