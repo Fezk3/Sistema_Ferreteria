@@ -25,3 +25,4 @@ if __name__ == '__main__':
     print(lista.__repr__())
     lista.insertar(777, 2)
     print(lista.__repr__())
+    print(f"Cantidad de nodos {lista.cantidad_nodos}")
