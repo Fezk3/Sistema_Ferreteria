@@ -13,4 +13,4 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     cliente1 = cliente("Victor", 456)
-    print(cliente1.nombre, cliente1.id)
+    print(cliente1.__repr__())
