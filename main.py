@@ -2,8 +2,8 @@
 
 # Press Mayús+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from cliente import cliente
-
+from cliente import Cliente
+from producto import Producto
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -12,5 +12,5 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    cliente1 = cliente("Victor", 456)
-    print(cliente1.__repr__())
+    leche = Producto("Leche", 78, 900)
+    print(leche.nombre, leche.id, leche.precio)
