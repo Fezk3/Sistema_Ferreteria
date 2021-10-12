@@ -23,6 +23,7 @@ if __name__ == '__main__':
     print("Eliminando")
     lista.eliminar(0)
     print(lista.__repr__())
-    lista.insertar(777, 2)
+    lista.insertar(777, 1)
     print(lista.__repr__())
     print(f"Cantidad de nodos {lista.cantidad_nodos}")
+
