@@ -5,7 +5,7 @@ class Nodo:
         self.siguiente = self
 
 class DCLL:
-    def __init__(self):
+    def __init__(self, dato):
         self.dato = dato
         self.anterior = self
         self.siguiente = self
