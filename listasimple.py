@@ -5,10 +5,10 @@ class Nodo:
 
 class ListaSimple:
     def __init__(self):
-        cabeza = None
+        self.cabeza = None
 
     def __repr__(self):
-        actual=cabeza
+        actual=self.cabeza
         salida=""
         while actual is not None:
             salida+=f'{self.__repr__()}\n'
@@ -21,9 +21,9 @@ class ListaSimple:
             self.cabeza = actual
             return
         final= self.cabeza
-        while (final.cabeza):
-            final = final.sigval
-        final.sigval = NewNode
+        while final:
+            final = final.sig
+        final.sig = nuevo
 
     def alMedio(self, actual, dato):
         if actual is None:
@@ -35,22 +35,30 @@ class ListaSimple:
         actual.sig = nuevo
 
     def Remover(self, id):
-        actual = self.head
+        actual = self.cabeza
 
-        if (actual is not None):
-            if (actual.dato == id):
-                self.head = actual.sig
+        if actual is not None:
+            if actual.dato == id:
+                self.cabeza = actual.sig
                 actual = None
                 return
-        while (actual is not None):
+
+        while actual is not None:
             if actual.dato == id:
                 break
             prev = actual
             actual = actual.sig
 
-        if (actual == None):
+        if actual == None:
             return
 
         prev.sig = actual.sig
         actual = None
 
+    def get(self, id):
+        actual =self.cabeza
+        while actual is not None:
+            if actual.dato is id:
+                return actual.dato
+
+        return None
