@@ -18,3 +18,6 @@ class Cliente:
 
         return total
 
+    def saca_producto_carrito(self):
+        return self.carrito.sacar()  # para la info de la factura
+
