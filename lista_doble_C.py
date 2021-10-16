@@ -18,7 +18,7 @@ class ListaDobleCircular:
             string += "La lista esta vacia"
             return string
 
-        string += f"Lista:\n{self.ini.dato.__repr__()}"
+        string += f"Lista:\n{self.ini.dato}"
         actual = self.ini.siguiente
         while actual != self.ini:
             string += f" -> {actual.dato}"

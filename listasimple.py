@@ -1,19 +1,24 @@
 class Nodo:
     def __init__(self, dato = None):
-        dato=dato
-        sig=None
+        self.dato=dato
+        self.sig=None
 
 class ListaSimple:
     def __init__(self):
         self.cabeza = None
 
     def __repr__(self):
-        actual=self.cabeza
-        salida=""
-        while actual is not None:
-            salida+=f'{self.__repr__()}\n'
-            actual=actual.sig
-        return salida
+        string=""
+        if self.cabeza is None:
+            string += "La lista esta vacia"
+            return string
+
+        string += f"Lista:\n{self.cabeza.dato.__repr__()}"
+        actual = self.cabeza.sig
+        while actual != None:
+            string += f" -> {actual}"
+            actual = actual.sig
+        return string
 
     def alfinal(self, nuevo):
         actual = Nodo(nuevo)

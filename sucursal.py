@@ -1,15 +1,14 @@
 from lista_doble_C import ListaDobleCircular
 from seccion import Seccion
 class Sucursal:
-    def __init__(self, ubicacion):
-        self.id = 0
+    def __init__(self, ubicacion, numero):
+        self.id = numero
         self.ubicacion = ubicacion
         self.listaSeccion = ListaDobleCircular()
-        self.id+=1
 
     def __repr__(self):
         salida=''
-        salida += f'Identificacion {self.id}\n Ubicacion: {self.ubicacion}\n  Secciones de la sucursal: {self.listaSeccion.__repr__()}'
+        salida += f'Identificacion {self.id}\nUbicacion: {self.ubicacion}\nSecciones de la sucursal: {self.listaSeccion.__repr__()}\n'
         return salida
 
     def agregaSeccion(self,seccion):
