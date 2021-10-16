@@ -11,4 +11,4 @@ class Sucursal:
         salida += f'Identificacion {id}\n Ubicacion: {ubicacion}'
         return salida
 
-    def agregaSeccion(self,seccion):
+    #def agregaSeccion(self,seccion):
