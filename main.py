@@ -1,23 +1,29 @@
-# This is a sample Python script.
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from cliente import Cliente
+from factura import Factura
 from producto import Producto
 
-from listadouble import ListaDobleEnlazada
-from lista_doble_C import ListaDobleCircular
+if __name__ == '__main__':
 
+<<<<<<< HEAD
 from ferreteria import Ferreteria
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+=======
     '''
+    p = Producto("Leche", "12", 1000)
+    fac = Factura()
+    fac2 = Factura()
+    p1 = Producto("tabla", "12", 1233)
+>>>>>>> fact
+
+    fac.recibe_item_comprado(p)
+    fac.recibe_item_comprado(p1)
+    fac.guarda_en_archivo()
+    # fac.muestra_factura()
+
+    '''
+<<<<<<< HEAD
     lista = ListaDobleEnlazada()
     lista.agregar(1)
     lista.agregar(88)
@@ -38,3 +44,5 @@ if __name__ == '__main__':
 
     ferre = Ferreteria()
     ferre.menuPrincipal()
+=======
+>>>>>>> fact
