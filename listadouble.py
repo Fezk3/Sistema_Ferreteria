@@ -86,3 +86,12 @@ class ListaDobleEnlazada:
             string += f" -> {start.data}"
             start = start.next
         return string
+
+    def get(self, num):
+        if num > self.cantidad_nodos or num<0:
+            raise ValueError(f"Index out of range: {num}, size: {self.cantidad_nodos}")
+
+        actual = self.ini
+        for _ in range(num):
+            actual = actual.siguiente
+        return actual.dato

@@ -3,12 +3,31 @@ from seccion import Seccion
 class Sucursal:
     def __init__(self, id, ubicacion):
         self.id = id
-        selff.ubicacion = ubicacion
-        listaSeccion = ListaDobleCircular()
+        self.ubicacion = ubicacion
+        self.listaSeccion = ListaDobleCircular()
 
     def __repr__(self):
         salida=''
-        salida += f'Identificacion {id}\n Ubicacion: {ubicacion}'
+        salida += f'Identificacion {self.id}\n Ubicacion: {self.ubicacion}\n  Secciones de la sucursal: {self.listaSeccion.__repr__()}'
         return salida
 
-    #def agregaSeccion(self,seccion):
+    def agregaSeccion(self,seccion):
+        self.listaSeccion.agregar(seccion)
+
+    def agregaSeccionEspecifica(self, indice, seccion):
+        numero = self.listaSeccion.num(indice)
+        if numero != None:
+            self.listaSeccion.insertar(seccion,numero)
+        return numero
+
+    def eliminarSeccion(self, indice):
+        numero = self.listaSeccion.num(indice)
+        if numero != None:
+            self.listaSeccion.eliminar(numero)
+        return numero
+
+    def retornarSeccion(self, indice):
+        numero = self.listaSeccion.num(indice)
+        if numero != None:
+            return self.listaSeccion.get(numero)
+        return numero
