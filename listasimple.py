@@ -8,7 +8,7 @@ class ListaSimple:
         cabeza = None
 
     def __repr__(self):
-        actual=cabeza
+        actual=self.cabeza
         salida=""
         while actual is not None:
             salida+=f'{self.__repr__()}\n'
@@ -23,14 +23,14 @@ class ListaSimple:
         final= self.cabeza
         while (final.cabeza):
             final = final.sigval
-        final.sigval = NewNode
+        final.sigval = Nodo
 
     def alMedio(self, actual, dato):
         if actual is None:
             print("The mentioned node is absent")
             return
 
-        nuevo = Node(dato)
+        nuevo = Nodo(dato)
         nuevo.sig = actual.sigval
         actual.sig = nuevo
 
