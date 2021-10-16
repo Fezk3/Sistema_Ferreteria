@@ -1,7 +1,4 @@
-from misc import Misc
-
-
-class Cliente(Misc):
+class Cliente:
 
     def __init__(self, nombre, id):
         self.nombre = nombre
