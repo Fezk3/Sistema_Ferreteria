@@ -6,5 +6,5 @@ class Producto:
 
     def __repr__(self):
         salida=''
-        salida=f'nombre: {self.nombre} \n id: {self.id} \n  precio: {self.precio}'
+        salida=f'\nnombre: {self.nombre} \nid: {self.id} \nprecio: {self.precio}'
         return salida
