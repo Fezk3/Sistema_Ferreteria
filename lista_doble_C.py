@@ -14,13 +14,13 @@ class ListaDobleCircular:
     def __repr__(self):
         string = ""
 
-        if (self.ini is None):
+        if self.ini is None:
             string += "La lista esta vacia"
             return string
 
         string += f"Lista:\n{self.ini.dato.__repr__()}"
         actual = self.ini.siguiente
-        while (actual != self.ini):
+        while actual != self.ini:
             string += f" -> {actual.dato}"
             actual = actual.siguiente
         return string
@@ -30,7 +30,7 @@ class ListaDobleCircular:
         return
 
     def insertar(self, dato, num):
-        if (num > self.cont) | (num < 0):
+        if num > self.cont or num < 0:
             raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
         if self.ini is None:
@@ -46,16 +46,16 @@ class ListaDobleCircular:
             for _ in range(num - 1):
                 actual = actual.siguiente
 
-        actual.siguiente.anterior = Node(dato)
+        actual.siguiente.anterior = Nodo(dato)
         actual.siguiente.anterior.siguiente, actual.siguiente.anterior.anterior = actual.siguiente, actual
         actual.siguiente = actual.siguiente.anterior
-        if (num == 0):
+        if num == 0:
             self.ini = self.ini.anterior
         self.cont += 1
         return
 
     def eliminar(self, num):
-        if (num >= self.cont) | (num < 0):
+        if num >= self.cont or num < 0:
             raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
         if self.cont == 1:
@@ -76,13 +76,13 @@ class ListaDobleCircular:
     def num(self, dato):
         actual = self.ini
         for i in range(self.cont):
-            if (actual.dato is dato):
+            if actual.dato is dato:
                 return i
             actual = actual.siguiente
         return None
 
     def get(self, num):
-        if (num >= self.cont) | (num < 0):
+        if num >= self.cont or num < 0:
             raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
         actual = self.ini
