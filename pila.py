@@ -1,6 +1,6 @@
 class Pila:
 
-    def init(self):
+    def __int__(self):
         self.items = []
 
     def esta_vacia(self):
