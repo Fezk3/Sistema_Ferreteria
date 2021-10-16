@@ -26,7 +26,10 @@ class tipoProducto:
             for obj in csv_reader:
                 self.producto2.agreagar(Producto(obj[0], obj[1], int(obj[2])))
 
-
+    def __repr__(self):
+        string=""
+        string = f'Tipo de producto: {self.tipoP}\n'
+        return string
 '''
     Ejp:
         puerta = tipoProducto("Puerta") 

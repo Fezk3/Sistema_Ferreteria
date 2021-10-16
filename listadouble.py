@@ -77,10 +77,10 @@ class ListaDobleEnlazada:
         string = ""
 
         if self.ini is None:
-            string += "Doubly Linked List Empty"
+            string += "Lista vacia"
             return string
 
-        string += f"Doubly Linked List:\n{self.ini.data}"
+        string += f"Lista:\n{self.ini.data}"
         start = self.ini.next
         while start != None:
             string += f" -> {start.data}"
@@ -95,3 +95,4 @@ class ListaDobleEnlazada:
         for _ in range(num):
             actual = actual.siguiente
         return actual.dato
+
