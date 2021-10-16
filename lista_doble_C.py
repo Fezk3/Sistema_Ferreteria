@@ -4,11 +4,12 @@ class Nodo:
         self.anterior = self
         self.siguiente = self
 
-class DCLL:
-    def __init__(self, dato):
-        self.dato = dato
+class ListaDobleCircular:
+    def __init__(self):
+        self.ini = None
         self.anterior = self
         self.siguiente = self
+        self.cont=0
 
     def __repr__(self):
         string = ""
@@ -17,7 +18,7 @@ class DCLL:
             string += "La lista esta vacia"
             return string
 
-        string += f"Lista:\n{self.ini.da}"
+        string += f"Lista:\n{self.ini.dato.__repr__()}"
         actual = self.ini.siguiente
         while (actual != self.ini):
             string += f" -> {actual.dato}"
@@ -25,7 +26,7 @@ class DCLL:
         return string
 
     def agregar(self, dato):
-        self.insert(dato, self.cont)
+        self.insertar(dato, self.cont)
         return
 
     def insertar(self, dato, num):
@@ -33,13 +34,14 @@ class DCLL:
             raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
         if self.ini is None:
-            self.ini = Node(dato)
+            self.ini = Nodo(dato)
             self.cont = 1
             return
 
         actual = self.ini
-        if (num is 0):
+        if num == 0:
             actual = actual.anterior
+
         else:
             for _ in range(num - 1):
                 actual = actual.siguiente
@@ -47,7 +49,7 @@ class DCLL:
         actual.siguiente.anterior = Node(dato)
         actual.siguiente.anterior.siguiente, actual.siguiente.anterior.anterior = actual.siguiente, actual
         actual.siguiente = actual.siguiente.anterior
-        if (num is 0):
+        if (num == 0):
             self.ini = self.ini.anterior
         self.cont += 1
         return
@@ -56,7 +58,7 @@ class DCLL:
         if (num >= self.cont) | (num < 0):
             raise ValueError(f"numero fuera del rango: {num}, rango: {self.cont}")
 
-        if self.cont is 1:
+        if self.cont == 1:
             self.ini = None
             self.cont = 0
             return
