@@ -76,13 +76,13 @@ class ListaDobleEnlazada:
     def __repr__(self):
         string = ""
 
-        if (self.ini is None):
+        if self.ini is None:
             string += "Doubly Linked List Empty"
             return string
 
         string += f"Doubly Linked List:\n{self.ini.data}"
         start = self.ini.next
-        while (start != None):
+        while start is not None:
             string += f" -> {start.data}"
             start = start.next
         return string
