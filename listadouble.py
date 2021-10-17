@@ -103,5 +103,5 @@ class ListaDobleEnlazada:
 
         actual = self.ini
         for ele in range(num):
-            actual = actual.siguiente
+            actual = actual.sig
         return actual.dato
