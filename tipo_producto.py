@@ -13,6 +13,8 @@ class tipoProducto:
         self.tipoP = tipoP
         self.producto1 = Pila()
         self.producto2 = Pila()
+        self.llena_producto1("puertaPino")
+        self.llena_producto2("puertaRoble")
 
     def llena_producto1(self, leerde):
         with open(f'{leerde}.csv', 'r') as f:
@@ -28,7 +30,10 @@ class tipoProducto:
 
     def __repr__(self):
         string=""
-        string = f'Tipo de producto: {self.tipoP}\n'
+        string = f'Tipo de producto: {self.tipoP}\n\nProductos:'
+        while not self.producto1.esta_vacia():
+            string+= f'{self.producto1.sacar()}\n'
+        string+='\n'
         return string
 '''
     Ejp:

@@ -18,13 +18,14 @@ class Ferreteria:
         self.listaSucursal.get(id)
 
     def menuPrincipal(self):
-        opc=""
+        opc = ""
         print('\n\t\t\tBienvenido Amigo al Martillazo Feliz!!')
         while opc != "salir":
-            print('\n\n1- Agregar una sucursal')
-            print('2- Ver las sucursales')
+            print('\n\n1 - Agregar una sucursal')
+            print('2 - Ver las sucursales')
+            print('3 -')
             print('Para salir digite "salir"')
-            opc=input('Que desea realizar?\n')
+            opc = input('Que desea realizar?\n')
 
             if opc == "1":
                 self.ingresarSucursal()
@@ -33,10 +34,11 @@ class Ferreteria:
 
     def imprimirFerreteria(self):
         self.listaSucursal.__repr__()
+
     def ingresarSucursal(self):
         nombreSu = ""
         nombreSu = input("Digite la ubicacion de la sucursal\n")
-        sucursal = Sucursal(nombreSu,1)
+        sucursal = Sucursal(nombreSu, 1)
 
         ciclo = 0
         ciclo2 = 0
@@ -44,7 +46,7 @@ class Ferreteria:
         while ciclo > 0:
             nombreSe = ""
             nombreSe = input("Digite el nombre de la seccion:\n")
-            seccion = Seccion(nombreSe,ciclo)
+            seccion = Seccion(nombreSe, ciclo)
             ciclo -= 1
 
             ciclo2 = int(input("Cuantos tipos de productos desea agregar: "))
@@ -57,3 +59,5 @@ class Ferreteria:
             sucursal.agregaSeccion(seccion)
 
         self.listaSucursal.alfinal(sucursal)
+
+
