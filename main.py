@@ -16,8 +16,9 @@ if __name__ == '__main__':
     fac.guarda_en_archivo()
     # fac.muestra_factura()
    '''
-    # ferre = Ferreteria()
-    # ferre.menuPrincipal()
+    ferre = Ferreteria()
+    ferre.menuPrincipal()
+
 
     from factura import Factura
     from cola_clientes import ColaClientes
@@ -33,4 +34,6 @@ if __name__ == '__main__':
         time.sleep(10)
         fact.recibe_item_comprado(cliente.saca_producto_carrito())
     fact.guarda_en_archivo()
+
+
 
