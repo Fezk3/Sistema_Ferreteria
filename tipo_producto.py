@@ -33,7 +33,7 @@ class tipoProducto:
         string=""
         string = f'Tipo de producto: {self.tipoP}\n\nProductos:'
 
-        string+= f'{self.producto1.top()} Cantidad: {self.producto1.tamnaio()}\n'
+        string+= f'{self.producto2.top()} Cantidad: {self.producto2.tamnaio()}\n'
         return string
 '''
     Ejp:
