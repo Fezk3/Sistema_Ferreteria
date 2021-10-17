@@ -8,15 +8,6 @@ class Ferreteria:
         self.listaSucursal = []
         self.cont = 0
 
-    def agregarSucursales(self, sucursal):
-        self.listaSucursal.alfinal(sucursal)
-
-    def eliminarSucursales(self, id):
-        self.listaSucursal.Remover(id)
-
-    def SeccionESpecifica(self, id):
-        self.listaSucursal.get(id)
-
     def menuPrincipal(self):
         opc = ""
         print('\n\t\t\tBienvenido Amigo al Martillazo Feliz!!')
