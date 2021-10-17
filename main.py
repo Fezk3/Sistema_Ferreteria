@@ -1,6 +1,7 @@
 from factura import Factura
 from producto import Producto
 from ferreteria import Ferreteria
+import time
 
 if __name__ == '__main__':
     '''
@@ -17,14 +18,15 @@ if __name__ == '__main__':
     # ferre = Ferreteria()
     # ferre.menuPrincipal()
 
-    from lista_doble_C import ListaDobleCircular
+    from factura import Factura
+    from cola_clientes import ColaClientes
 
-    l = ListaDobleCircular()
-    l.agregar(1)
-    l.agregar(22)
-    l.agregar(333)
-    l.agregar(4444)
-    l.agregar(55555)
-    l.eliminar(0)
-    l.insertar(789, 0)
-    print(l)
+    fact = Factura()
+    ca = ColaClientes()
+
+    for cliente in ca.cola_clientes:
+        print("Esperando a que se termine de atender al cliente de adelante")
+        time.sleep(10)
+        fact.recibe_item_comprado(cliente.saca_producto_carrito())
+    fact.guarda_en_archivo()
+
