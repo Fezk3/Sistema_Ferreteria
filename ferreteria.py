@@ -1,6 +1,7 @@
 from sucursal import Sucursal
 from sucursal import Seccion
 from seccion import tipoProducto
+from tipo_producto import Producto
 
 
 class Ferreteria:
@@ -66,6 +67,7 @@ class Ferreteria:
             print('\n\n1 - Agregar una sucursal')
             print('2 - Ver las sucursales')
             print('3 - Eliminar')
+            print('4 - Agregar elementos en sucursal')
             print('Para salir digite "salir"')
             opc = input('Que desea realizar?\n')
 
@@ -75,18 +77,21 @@ class Ferreteria:
                 self.imprimirSucursal()
             if opc == "3":
                 self.eliminar()
+            if opc == "4":
+                self.agregarEnSucursal()
 
     def ingresarSucursal(self):
         nombreSu = ""
         nombreSu = input("Digite la ubicacion de la sucursal\n")
         sucursal = Sucursal(nombreSu, self.cont)
 
-        ciclo = 0
-        ciclo2 = 0
+        ciclo = ''
+        ciclo2 = ''
+        ciclo3 = ''
         ciclo = input("cuantas secciones desea agregar: ")
         i = 0
         if not ciclo.isdigit():
-            return
+            return f'Digito una opcion invalida'
         while int(ciclo) > i:
             nombreSe = ""
             nombreSe = input("Digite el nombre de la seccion:\n")
@@ -95,14 +100,41 @@ class Ferreteria:
 
             ciclo2 = input("Cuantos tipos de productos desea agregar: ")
             if not ciclo2.isdigit():
-                return
+                return f'Digito una opcion invalida'
             j = int(ciclo2)
             while j > 0:
                 tipo = ""
                 tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
                 tipoP = tipoProducto(tipo)
-                seccion.agregarProducto(tipoP)
+
                 j -= 1
+
+                ciclo3 = input('Digite el numero de productos que dea agregar: ')
+
+                if not ciclo3.isdigit():
+                    return f'Digito una opcion invalida'
+
+                k=0
+                while k < int(ciclo3):
+                    nom = ""
+                    nom = input('Digite el nombre del producto ')
+                    precio =""
+                    precio = input('Digite el precio de este producto ')
+                    if not precio.isdigit():
+                        return f'Digito una opcion invalida'
+                    cant = ""
+                    cant = input('Digite el stock de este producto ')
+
+                    if not ciclo3.isdigit():
+                        return f'Digito una opcion invalida'
+                    l = 0
+                    while l < int(cant):
+                        producto = Producto(nom,l,precio)
+                        tipoP.agregaProducto(producto)
+                        l+=1
+                    k+=1
+                seccion.agregarProducto(tipoP)
+
             sucursal.agregaSeccion(seccion)
 
         self.listaSucursal.insert(self.cont, sucursal)
@@ -136,8 +168,10 @@ class Ferreteria:
     def eliminarSucursal(self):
         self.imprimirSucursal()
         opc = input("Digite el id de la sucursal que desea elimjnar ")
+
         if not opc.isdigit() or int(opc) > len(self.listaSucursal):
             return f'Digito una opcion invalida'
+
         index = int(opc)
         del self.listaSucursal[index]
         return f'Sucursal eliminada exitosamente'
@@ -145,31 +179,46 @@ class Ferreteria:
     def eliminarSeccion(self):
         self.imprimirSucursal()
         opc = input("Digite el id de la sucursal en la que esta la seccion que desea eliminar ")
+
         if not opc.isdigit() or int(opc) > len(self.listaSucursal):
             return f'Digito una opcion invalida'
+
         index = int(opc)
         print(self.listaSucursal[index])
         eliminado = input("digite la seccion que desea eliminar ")
         tam = self.listaSucursal[index].listaSeccion
+
         if not eliminado.isdigit() or int(eliminado) > tam.get_tamanio():
             return f'Digito una opcion invalida'
+
         self.listaSucursal[index].eliminarSeccion(int(eliminado))
         return f'Seccion eliminada exitosamente'
 
     def eliminarTipo(self):
         self.imprimirSucursal()
         opc = input("Digite el id de la sucursal ")
+
         if not opc.isdigit() or int(opc) > len(self.listaSucursal):
             return f'Digito una opcion invalida'
+
         index = int(opc)
         print(self.listaSucursal[index])
         seccion = input("digite la seccion donde se encuentra el tipo de producto ")
         tam = self.listaSucursal[index].listaSeccion
+
         if not seccion.isdigit() or int(seccion) > tam.get_tamanio():
             return f'Digito una opcion invalida'
+
         print(self.listaSucursal[index].retornarSeccion(int(seccion)))
         tipo = input('Digite el tipo de producto que desee eliminar ')
+
         if not opc.isdigit() or int(tipo) > tam.get_tamanio():
             return f'Digito una opcion invalida'
+
         self.listaSucursal[index].retornarSeccion(int(seccion)).eliminarTipo(int(tipo))
         return f'Tipo de producto eliminado exitosamente'
+
+    def agregarEnSucursal(self):
+        print()
+
+
