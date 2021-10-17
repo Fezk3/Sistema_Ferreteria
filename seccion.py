@@ -1,9 +1,9 @@
 from listadouble import ListaDobleEnlazada
-from tipo_producto import tipoProducto
+from Productos import tipoProducto
 
 
 class Seccion:
-    def __init__(self, nombre, numero):
+    def __init__(self, nombre, numero):  # Madera Hierro
         self.numero = numero
         self.nombre = nombre
         self.listaProductos = ListaDobleEnlazada()
@@ -17,7 +17,7 @@ class Seccion:
         self.listaProductos.agregar(producto)
 
     def agregarProductoEspecifico(self, producto, indice):
-        if indice < self.listaProductos.cantidad_nodos:
+        if indice < self.listaProductos.tamanio:
             numero = self.listaProductos.insertar(producto, indice)
 
     def eliminarTipo(self, indice):
@@ -26,3 +26,10 @@ class Seccion:
     def tamanioTipo(self):
         tam = self.listaProductos.get_tamanio()
         return tam
+
+    def retornaTipo(self, tipo):
+        for n in self.listaProductos.tamanio:
+            if tipo is self.listaProductos.get(n).tipoP:
+                return self.listaProductos.get(n)
+        else:
+            return None
