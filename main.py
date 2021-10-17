@@ -3,6 +3,7 @@ from producto import Producto
 from ferreteria import Ferreteria
 import time
 from cliente import Cliente
+from seccion import Seccion
 
 if __name__ == '__main__':
     '''
@@ -17,9 +18,15 @@ if __name__ == '__main__':
     # fac.muestra_factura()
    '''
 
-    ferre = Ferreteria()
+    #ferre = Ferreteria()
     #ferre.menuPrincipal()
-    ferre.menuCompra()
+    #ferre.menuCompra()
+
+    sec = Seccion("Madera", 4)
+    sec.llena_tipo_producto()
+    sec.muestra_tipo()
+
+
 '''
     from factura import Factura
     from cola_clientes import ColaClientes
