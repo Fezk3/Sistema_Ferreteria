@@ -147,4 +147,5 @@ class Ferreteria:
         self.listaSucursal[index].retornarSeccion(int(seccion)).eliminarTipo(int(tipo))
         return f'Tipo de producto eliminado exitosamente'
 
-    #def agregarEnSucursal(self):
+    def agregarEnSucursal(self):
+        print()
