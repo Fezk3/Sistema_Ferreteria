@@ -14,10 +14,10 @@ if __name__ == '__main__':
     fac.guarda_en_archivo()
     # fac.muestra_factura()
    '''
-    # ferre = Ferreteria()
-    # ferre.menuPrincipal()
+    ferre = Ferreteria()
+    ferre.menuPrincipal()
 
-    from lista_doble_C import ListaDobleCircular
+    '''from lista_doble_C import ListaDobleCircular
 
     l = ListaDobleCircular()
     l.agregar(1)
@@ -27,4 +27,4 @@ if __name__ == '__main__':
     l.agregar(55555)
     l.eliminar(0)
     l.insertar(789, 0)
-    print(l)
+    print(l)'''

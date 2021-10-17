@@ -25,3 +25,5 @@ class Sucursal:
 
     def retornarSeccion(self, indice):
         return self.listaSeccion.get(indice)
+
+

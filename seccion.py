@@ -20,5 +20,9 @@ class Seccion:
         if indice < self.listaProductos.cantidad_nodos:
             numero = self.listaProductos.insertar(producto, indice)
 
-    def eliminarSeccion(self, indice):
-        self.listaProductos.get(indice)
+    def eliminarTipo(self, indice):
+        self.listaProductos.eliminar(indice)
+
+    def tamanioTipo(self):
+        tam = self.listaProductos.get_tamanio()
+        return tam
