@@ -2,6 +2,7 @@ from factura import Factura
 from producto import Producto
 from ferreteria import Ferreteria
 import time
+from cliente import Cliente
 
 if __name__ == '__main__':
     '''
@@ -23,6 +24,9 @@ if __name__ == '__main__':
 
     fact = Factura()
     ca = ColaClientes()
+    cli = Cliente("Victor", "13")
+    cli.agregar_producto_carrito(Producto('Puerta Roble', "7", 90000))
+    ca.agregar_cliente(cli)
 
     for cliente in ca.cola_clientes:
         print("Esperando a que se termine de atender al cliente de adelante")
