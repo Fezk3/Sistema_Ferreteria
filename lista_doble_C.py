@@ -15,13 +15,13 @@ class ListaDobleCircular:
         string = ""
 
         if self.ini is None:
-            string += "La lista esta vacia"
+            string += "\nLa lista esta vacia"
             return string
 
-        string += f"Lista:\n{self.ini.dato}"
+        string += f"\nLista:\n\n{self.ini.dato}"
         actual = self.ini.siguiente
         while actual != self.ini:
-            string += f" -> {actual.dato}"
+            string += f"{actual.dato}"
             actual = actual.siguiente
         return string
 

@@ -14,7 +14,7 @@ class ListaSimple:
             string += "La lista esta vacia"
             return string
 
-        string += f"Lista:\n{self.cabeza.dato.__repr__()}"
+        string += f"Lista:\n\n{self.cabeza.dato.__repr__()}"
         actual = self.cabeza.sig
         while actual != None:
             string += f" -> {actual}"

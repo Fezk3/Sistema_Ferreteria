@@ -80,10 +80,10 @@ class ListaDobleEnlazada:
             string += "Lista vacia"
             return string
 
-        string += f"Lista:\n{self.ini.data}"
+        string += f"\nLista:\n{self.ini.data}"
         start = self.ini.next
         while start != None:
-            string += f" -> {start.data}"
+            string += f"{start.data}"
             start = start.next
         return string
 
