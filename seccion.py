@@ -49,9 +49,10 @@ class Seccion:
         puerta.llena_producto1("puertaPino")
         puerta.llena_producto2("puertaRoble")
 
-        perlin = tipoProducto("Hierro")
-        perlin.llena_producto1("perlin")
+        if self.nombre == "Hierro":
+            perlin = tipoProducto("Hierro")
+            perlin.llena_producto1("perlin")
+            self.listaTipoProductos.agregar(perlin)
 
         self.listaTipoProductos.agregar(tabla)  # tabla contiene las 2 pilas con las distintas tablas que hay
         self.listaTipoProductos.agregar(puerta)  # puerta contiene las 2 pilas con las distintas puertas que hay
-        self.listaTipoProductos.agregar(perlin)
