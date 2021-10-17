@@ -1,6 +1,7 @@
 from sucursal import Sucursal
 from sucursal import Seccion
 from seccion import tipoProducto
+from tipo_producto import Producto
 
 
 class Ferreteria:
@@ -42,12 +43,13 @@ class Ferreteria:
         nombreSu = input("Digite la ubicacion de la sucursal\n")
         sucursal = Sucursal(nombreSu, self.cont)
 
-        ciclo = 0
-        ciclo2 = 0
+        ciclo = ''
+        ciclo2 = ''
+        ciclo3 = ''
         ciclo = input("cuantas secciones desea agregar: ")
         i = 0
         if not ciclo.isdigit():
-            return
+            return f'Digito una opcion invalida'
         while int(ciclo) > i:
             nombreSe = ""
             nombreSe = input("Digite el nombre de la seccion:\n")
@@ -56,14 +58,41 @@ class Ferreteria:
 
             ciclo2 = input("Cuantos tipos de productos desea agregar: ")
             if not ciclo2.isdigit():
-                return
+                return f'Digito una opcion invalida'
             j = int(ciclo2)
             while j > 0:
                 tipo = ""
                 tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
                 tipoP = tipoProducto(tipo)
-                seccion.agregarProducto(tipoP)
+
                 j -= 1
+
+                ciclo3 = input('Digite el numero de productos que dea agregar: ')
+
+                if not ciclo3.isdigit():
+                    return f'Digito una opcion invalida'
+
+                k=0
+                while k < int(ciclo3):
+                    nom = ""
+                    nom = input('Digite el nombre del producto ')
+                    precio =""
+                    precio = input('Digite el precio de este producto ')
+                    if not precio.isdigit():
+                        return f'Digito una opcion invalida'
+                    cant = ""
+                    cant = input('Digite el stock de este producto ')
+
+                    if not ciclo3.isdigit():
+                        return f'Digito una opcion invalida'
+                    l = 0
+                    while l < int(cant):
+                        producto = Producto(nom,l,precio)
+                        tipoP.agregaProducto(producto)
+                        l+=1
+                    k+=1
+                seccion.agregarProducto(tipoP)
+
             sucursal.agregaSeccion(seccion)
 
         self.listaSucursal.insert(self.cont, sucursal)
@@ -149,3 +178,5 @@ class Ferreteria:
 
     def agregarEnSucursal(self):
         print()
+
+
