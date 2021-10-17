@@ -90,5 +90,7 @@ class ListaDobleCircular:
             actual = actual.sig
         return actual.dato
 
+
     def get_tamanio(self):
         return self.tamanio
+

@@ -31,9 +31,8 @@ class tipoProducto:
     def __repr__(self):
         string=""
         string = f'Tipo de producto: {self.tipoP}\n\nProductos:'
-        while not self.producto1.esta_vacia():
-            string+= f'{self.producto1.sacar()}\n'
-        string+='\n'
+
+        string+= f'{self.producto1.top()} Cantidad: {self.producto1.tamnaio()}\n'
         return string
 '''
     Ejp:

@@ -14,3 +14,6 @@ class Pila:
 
     def tamnaio(self):
         return len(self.items)
+
+    def top(self):
+        return self.items[0]
