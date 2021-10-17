@@ -22,3 +22,4 @@ class Factura:
             for i in self.items:
                 f.write(f"{i}")
             f.write("\n")
+        self.items.clear()  # deja la lista de elementos vacia para la siguiete factura
