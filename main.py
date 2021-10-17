@@ -3,7 +3,6 @@ from producto import Producto
 from ferreteria import Ferreteria
 
 if __name__ == '__main__':
-
     '''
     p = Producto("Leche", "12", 1000)
     fac = Factura()
@@ -18,14 +17,14 @@ if __name__ == '__main__':
     # ferre = Ferreteria()
     # ferre.menuPrincipal()
 
-    from listadouble import ListaDobleEnlazada
+    from lista_doble_C import ListaDobleCircular
 
-    l = ListaDobleEnlazada()
+    l = ListaDobleCircular()
     l.agregar(1)
     l.agregar(22)
     l.agregar(333)
     l.agregar(4444)
     l.agregar(55555)
     l.eliminar(0)
-    print(l.insertar(88888888888, -1))
+    l.insertar(789, 0)
     print(l)
