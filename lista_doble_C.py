@@ -90,12 +90,7 @@ class ListaDobleCircular:
             actual = actual.sig
         return actual.dato
 
-<<<<<<< HEAD
+
     def get_tamanio(self):
         return self.tamanio
-=======
-    def size(self):
-        return self.cont
 
-
->>>>>>> bbd3cc7 (cambios)
