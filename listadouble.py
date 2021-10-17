@@ -58,6 +58,12 @@ class ListaDobleEnlazada:
         if posi >= self.tamanio or posi < 0:
             return f"La posicion solicitada no puede ser usada, use una valida. Tamanio de la lista {self.tamanio}"
 
+        if self.tamanio == 1:
+            self.ulti = None
+            self.ini = None
+            self.tamanio -=1
+            return
+
         if posi == 0:  # si el nodo a eliminar es el primero
             self.ini = self.ini.sig
             self.ini.ante = None
