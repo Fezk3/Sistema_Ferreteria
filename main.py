@@ -15,7 +15,17 @@ if __name__ == '__main__':
     fac.guarda_en_archivo()
     # fac.muestra_factura()
    '''
-    ferre = Ferreteria()
-    ferre.menuPrincipal()
+    # ferre = Ferreteria()
+    # ferre.menuPrincipal()
 
+    from listadouble import ListaDobleEnlazada
 
+    l = ListaDobleEnlazada()
+    l.agregar(1)
+    l.agregar(22)
+    l.agregar(333)
+    l.agregar(4444)
+    l.agregar(55555)
+    l.eliminar(0)
+    print(l.insertar(88888888888, -1))
+    print(l)
