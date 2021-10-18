@@ -2,7 +2,7 @@ from sucursal import Sucursal
 from sucursal import Seccion
 from seccion import tipoProducto
 from tipo_producto import Producto
-
+from cliente import Cliente
 
 class Ferreteria:
     def __init__(self):
@@ -54,21 +54,21 @@ class Ferreteria:
         if not op2.isdigit():
             return f'Digito una opcion invalida'
 
-        if op2 == "1" and mad is not True:
+        if op2 == "1" and mad is not True:  # TABLAS
             tabla = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Tabla')  # tablas
             print(f'Tablas disponibles: ')
             print(tabla.muestra_tops())
-            self.compra(n_su)
-        elif op2 == "2" and mad is not True:
+            self.compra(n_su, tabla)
+        elif op2 == "2" and mad is not True:  # PUERTAS
             puerta = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Puerta')  # puertas
             print(f'\nPuertas disponibles: ')
             print(puerta.muestra_tops())
-            self.compra(n_su)
-        elif op2 == "1" and mad is True:  # puertas
-            perlin = self.listaSucursal[n_su].listaSeccion.get(1).retornaTipo('Perlin')   # retornaTipo("Hierro")  # perlins
+            self.compra(n_su, puerta)
+        elif op2 == "1" and mad is True:  # PERLINS
+            perlin = self.listaSucursal[n_su].listaSeccion.get(1).retornaTipo('Perlin')  # perlins
             print(f'Perlins disponibles: ')
             print(perlin.muestra_tops())
-            self.compra(n_su)
+            self.compra(n_su, perlin)
         else:
             return f'Digito una opcion invalida'
 
@@ -82,21 +82,33 @@ class Ferreteria:
         print("Los tipos de producto de los que dispone esta seccion son:")
         metales.muestra_tipo()
 
-    def compra(self, n_su):
+    def compra(self, n_su, cual):
+        p1 = False
         print("Desea comprar un producto?")
+        print("1. Si        2. No")
         y = input()
 
         if not y.isdigit():
             return f'Digito una opcion invalida'
 
-        if y == "1":
-
+        if y == "1":  # si quiere comprar
+            c = Cliente()
+            print(cual.muestra_tops())
             print("Digite el numero del procuto que quiere comprar: ")
             p = input()
 
+            if not p.isdigit():
+                return f'Digito una opcion invalida'
 
-        elif y == "2":  # puertas
-            return
+            if p == "1":
+                c.agregar_producto_carrito(cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
+                p1 = True
+            elif p == "2" and p1 is not True:
+                c.agregar_producto_carrito(cual.producto2.sacar())
+
+
+        elif y == "2":
+            return self.menu_sucursal(n_su)  # se devuelve al menu principal de la sucursal
         else:
             return f'Digito una opcion invalida'
 

@@ -3,9 +3,7 @@ from pila import Pila
 
 class Cliente:
 
-    def __init__(self, nombre, id):
-        self.nombre = nombre
-        self.id = id
+    def __init__(self):
         self.carrito = Pila()  # se aniadiran los productos de las pilas que los contienen en la ferreteria
 
     def agregar_producto_carrito(self, prod):
