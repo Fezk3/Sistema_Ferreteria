@@ -12,7 +12,7 @@ class Ferreteria:
     def menuCompra(self):
         print("Digite el numero sucursal en la que desea realizar la compra:   ")
         for su in self.listaSucursal:
-            print(f"1. Sucarsal de {su.nombre}")
+            print(f"1. Sucarsal de {self.listaSucursal[su].ubicacion}")
         sucur = input()
 
         if not sucur.isdigit():
@@ -30,7 +30,7 @@ class Ferreteria:
 
     def menu_sucursal(self, n_su):
         print(f"Bienvenido a la sucursal de {self.listaSucursal[n_su].ubicacion}")
-        print(f"Digite el numero de la seccion de la que desea ver los productos: ")
+        print(f"Digite el numero de la seccion de la que desea ver los tipos de productos: ")
         for sel in self.listaSucursal[n_su].listaSeccion.tamanio:  # en base al tamanio
             print(f"Seccion de: {sel.retornarSeccion().nombre}")
         opci = input()
@@ -41,24 +41,59 @@ class Ferreteria:
         if opci == "1":
             self.mostrar_maderas(n_su)
         elif opci == "2":
-            self.mostrar_metales()
+            self.mostrar_metales(n_su)
+        else:
+            return f'Digito una opcion invalida'
+
+        print("Digite el numero del que quiera ver sus productos especificos: ")
+        op2 = input()
+
+        if not op2.isdigit():
+            return f'Digito una opcion invalida'
+
+        if op2 == "1":
+            tabla = self.listaSucursal[n_su].listaSeccion.retornaTipo("Tabla")  # tablas
+            print(f'Tablas disponibles: ')
+            print(tabla)
+            puerta = self.listaSucursal[n_su].listaSeccion.retornaTipo("Tabla")  # puertas
+            print(f'\nPuertas disponibles: ')
+            print(puerta)
+            self.compra(n_su)
+        elif op2 == "2":  # puertas
+            perlin = self.listaSucursal[n_su].listaSccion.retornaTipo("Hierro")  # perlins
+            print(f'Perlins disponibles: ')
+            print(perlin)
+            self.compra(n_su)
         else:
             return f'Digito una opcion invalida'
 
     def mostrar_maderas(self, n_su):  # muestra los tipos de producto
-        madera = self.listaSucursal[n_su].retornarSeccion(0).retornaTipo("Madera")
-        if madera.producto1.esta_vacia():
-            pass
-        else:
-            print(f"{madera.producto1.top()}")
+        maderas = self.listaSucursal[n_su].listaSeccion.get(0)
+        print("Los tipos de producto de los que dispone esta seccion son:")
+        maderas.muestra_tipo()
 
-        if madera.producto2.esta_vacia():
-            pass
-        else:
-            print(f"{madera.producto1.top()}")
+    def mostrar_metales(self, n_su):
+        metales = self.listaSucursal[n_su].listaSeccion.get(1)
+        print("Los tipos de producto de los que dispone esta seccion son:")
+        metales.muestra_tipo()
 
-    def mostrar_metales(self):
-        pass
+    def compra(self, n_su):
+        print("Desea comprar un producto?")
+        y = input()
+
+        if not y.isdigit():
+            return f'Digito una opcion invalida'
+
+        if y == "1":
+
+            print("Digite el numero del procuto que quiere comprar: ")
+            p = input()
+
+
+        elif y == "2":  # puertas
+            return
+        else:
+            return f'Digito una opcion invalida'
 
     def menuPrincipal(self):
         opc = ""

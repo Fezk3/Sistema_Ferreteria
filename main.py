@@ -9,9 +9,9 @@ if __name__ == '__main__':
 
 
 
-    ferre = Ferreteria()
-    ferre.menuPrincipal()
-    ferre.menuCompra()
+    #ferre = Ferreteria()
+    #ferre.menuPrincipal()
+    #ferre.menuCompra()
 
 
     sec = Seccion("Madera", 4)

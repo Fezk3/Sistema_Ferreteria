@@ -50,7 +50,7 @@ class Seccion:
         puerta.llena_producto2("puertaRoble")
 
         if self.nombre == "Hierro":
-            perlin = tipoProducto("Hierro")
+            perlin = tipoProducto("Perlin")
             perlin.llena_producto1("perlin")
             self.listaTipoProductos.agregar(perlin)
 
