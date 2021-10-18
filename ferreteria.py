@@ -107,32 +107,25 @@ class Ferreteria:
                 tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
                 tipoP = tipoProducto(tipo)
 
+                nom = ""
+                nom = input('Digite el nombre del producto\n')
+                precio =""
+                precio = input('Digite el precio de este producto\n')
+                if not precio.isdigit():
+                    return f'Digito una opcion invalida\n'
+                cant = ""
+                cant = input('Digite el stock de este producto\n')
+
+                if not cant.isdigit():
+                    return f'Digito una opcion invalida'
+                l = 0
+                while l < int(cant):
+                    producto = Producto(nom,l,precio)
+                    tipoP.agregaProducto(producto)
+                    l+=1
                 j -= 1
 
-                ciclo3 = input('Digite el numero de productos que dea agregar: ')
 
-                if not ciclo3.isdigit():
-                    return f'Digito una opcion invalida'
-
-                k=0
-                while k < int(ciclo3):
-                    nom = ""
-                    nom = input('Digite el nombre del producto ')
-                    precio =""
-                    precio = input('Digite el precio de este producto ')
-                    if not precio.isdigit():
-                        return f'Digito una opcion invalida'
-                    cant = ""
-                    cant = input('Digite el stock de este producto ')
-
-                    if not ciclo3.isdigit():
-                        return f'Digito una opcion invalida'
-                    l = 0
-                    while l < int(cant):
-                        producto = Producto(nom,l,precio)
-                        tipoP.agregaProducto(producto)
-                        l+=1
-                    k+=1
                 seccion.agregarProducto(tipoP)
 
             sucursal.agregaSeccion(seccion)
@@ -219,6 +212,50 @@ class Ferreteria:
         return f'Tipo de producto eliminado exitosamente'
 
     def agregarEnSucursal(self):
-        print()
+        print('Que desea agregar?')
+        print('1 -Sucursal')
+        print('2 -Seccion')
+        print('3 -Tipo de producto')
+        opc = ""
+        opc = input("Elija una opcion: ")
 
+        if not opc.isdigit():
+            return f'Digito una opcion invalida'
 
+        if opc == "1":
+            print(self.agregarSucursal())
+
+        if opc == "2":
+            print(self.agregarSeccion())
+
+        if opc == "3":
+            print(self.agregarTipo())
+
+    def agregarSucursal(self):
+        nombre = ""
+        nombre = input('Ingrese la ubicacion de la sucursal')
+        sucursal =Sucursal(nombre, self.cont)
+        self.listaSucursal.append(sucursal)
+        cont+=1
+
+    def agregarSeccion(self):
+        self.imprimirSucursal()
+        opc = input("Digite el id de la sucursal ")
+
+        if not opc.isdigit() or int(opc) > len(self.listaSucursal):
+            return f'Digito una opcion invalida'
+        print(self.listaSucursal[int(opc)])
+        #pos = ""
+
+    def sucursalPorDefecto(self):
+        sucursal = Sucursal('alajuela',0)
+        seccion = Seccion('Madera',0)
+        tipo = tipoProducto('Tabla')
+        tipo2 = tipoProducto('Puerta')
+        seccion.agregarProducto(tipo)
+        seccion.agregarProducto(tipo2)
+        seccion2 = Seccion('Hierro',1)
+        tipo3 = tipoProducto('Perlin')
+        seccion2.agregarProducto(tipo3)
+        sucursal.agregaSeccion(seccion)
+        sucursal.agregaSeccion(seccion2)

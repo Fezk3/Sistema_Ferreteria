@@ -10,7 +10,7 @@ class Sucursal:
 
     def __repr__(self):
         salida = ''
-        salida += f'Identificacion {self.id}\nUbicacion: {self.ubicacion}\nSecciones de la sucursal: {self.listaSeccion.__repr__()}\n'
+        salida += f'Identificacion {self.id}\nUbicacion: {self.ubicacion}\nSecciones de la sucursal: {self.listaSeccion}\n'
         # salida +=
         return salida
 
