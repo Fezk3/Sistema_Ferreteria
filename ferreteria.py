@@ -246,24 +246,27 @@ class Ferreteria:
         self.cont += 1
 
     def eliminar(self):
-        print('Que desea eliminar?')
-        print('1 -Sucursal')
-        print('2 -Seccion')
-        print('3 -Tipo de producto')
         opc = ""
-        opc = input("Elija una opcion: ")
+        while opc != "salir":
+            print('Que desea eliminar?')
+            print('1 -Sucursal')
+            print('2 -Seccion')
+            print('3 -Tipo de producto')
+            print('Para salir digite "salir"')
 
-        if not opc.isdigit():
-            return f'Digito una opcion invalida'
+            opc = input("Elija una opcion: ")
 
-        if opc == "1":
-            print(self.eliminarSucursal())
+            if not opc.isdigit():
+                return f'Digito una opcion invalida'
 
-        if opc == "2":
-            print(self.eliminarSeccion())
+            if opc == "1":
+                print(self.eliminarSucursal())
 
-        if opc == "3":
-            print(self.eliminarTipo())
+            if opc == "2":
+                print(self.eliminarSeccion())
+
+            if opc == "3":
+                print(self.eliminarTipo())
 
 
     def imprimirSucursal(self):
@@ -324,24 +327,27 @@ class Ferreteria:
         return f'Tipo de producto eliminado exitosamente'
 
     def agregarEnSucursal(self):
-        print('Que desea agregar?')
-        print('1 -Sucursal')
-        print('2 -Seccion')
-        print('3 -Tipo de producto')
         opc = ""
-        opc = input("Elija una opcion: ")
+        while opc != "salir":
+            print('Que desea agregar?')
+            print('1 -Sucursal')
+            print('2 -Seccion')
+            print('3 -Tipo de producto')
+            print('Para salir digite "salir"')
 
-        if not opc.isdigit():
-            return f'Digito una opcion invalida'
+            opc = input("Elija una opcion: ")
 
-        if opc == "1":
-            print(self.agregarSucursal())
+            if not opc.isdigit():
+                return f'Digito una opcion invalida'
 
-        if opc == "2":
-            print(self.agregarSeccion())
+            if opc == "1":
+                print(self.agregarSucursal())
 
-        if opc == "3":
-            print(self.agregarTipo())
+            if opc == "2":
+                print(self.agregarSeccion())
+
+            if opc == "3":
+                print(self.agregarTipo())
 
     def agregarSucursal(self):
         index = ""
@@ -455,6 +461,7 @@ class Ferreteria:
 
         for n in range(3):
             if n == 0:
+                
                 sucursal.agregaSeccion(seccion)
                 sucursal.agregaSeccion(seccion2)
                 self.listaSucursal.append(sucursal)
