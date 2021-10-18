@@ -24,13 +24,16 @@ class Ferreteria:
                 print('menu cliente')
 
     def menuCompra(self):
-        print("Digite el numero sucursal en la que desea realizar la compra:   ")
-        for su in range(len(self.listaSucursal)):
-            print(f"1. Sucarsal de {self.listaSucursal[su].ubicacion}")
-        sucur = input()
+        sucur = ""
 
-        if not sucur.isdigit():
-            return f'Digito una opcion invalida'
+        while sucur.isdigit() is not True:
+            print("Digite el numero sucursal en la que desea realizar la compra:   ")
+            for su in range(len(self.listaSucursal)):
+                print(f"{su + 1}. Sucarsal de {self.listaSucursal[su].ubicacion}")
+            sucur = input()
+
+            if not sucur.isdigit():
+                 print(f'Digito una opcion invalida')
 
         #if int(sucur) > len(self.listaSucursal):
         #    return f'Digito una opcion invalida'
@@ -403,8 +406,11 @@ class Ferreteria:
         self.listaSucursal[int(opc)].retornarSeccion(int(pos)).agregarProductoEspecifico(tipoP,int(index))
         return f'Tipo de producto guardado exitosamente'
 
-    def sucursalPorDefecto(self):
-        sucursal = Sucursal('alajuela',0)
+    def sucursalesPorDefecto(self):
+        sucursal = Sucursal('Alajuela',1)
+        sucursal2 = Sucursal('Heredia', 2)
+        sucursal3 = Sucursal('Cartago', 3)
+
         seccion = Seccion('Madera',0)
         tipo = tipoProducto('Tabla')
         tipo2 = tipoProducto('Puerta')
@@ -418,7 +424,18 @@ class Ferreteria:
         tipo3 = tipoProducto('Perlin')
         tipo3.llena_producto1('perlin')
         seccion2.agregarProducto(tipo3)
-        sucursal.agregaSeccion(seccion)
-        sucursal.agregaSeccion(seccion2)
-        self.listaSucursal.append(sucursal)
 
+        for n in range(3):
+            if n == 0:
+                sucursal.agregaSeccion(seccion)
+                sucursal.agregaSeccion(seccion2)
+                self.listaSucursal.append(sucursal)
+            elif n == 1:
+                sucursal2.agregaSeccion(seccion)
+                sucursal2.agregaSeccion(seccion2)
+                self.listaSucursal.append(sucursal2)
+
+            else:
+                sucursal3.agregaSeccion(seccion)
+                sucursal3.agregaSeccion(seccion2)
+                self.listaSucursal.append(sucursal3)

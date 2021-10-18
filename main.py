@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     #ferre.sucursalPorDefecto()
     #ferre.menuPrincipal()
-    ferre.sucursalPorDefecto()  # llenando la sucursal
+    ferre.sucursalesPorDefecto()  # llenando la sucursal
     ferre.menuCompra()
 
 '''
