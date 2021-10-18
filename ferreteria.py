@@ -9,6 +9,20 @@ class Ferreteria:
         self.listaSucursal = []
         self.cont = 0
 
+    def menuPrincipal(self):
+        opc = ""
+        print('\n\t\t\tBienvenido Amigo al Martillazo Feliz!!')
+        while opc != "salir":
+            print('1 - Menu Administrativo')
+            print('2 - Menu de Cliente')
+            print('Para salir digite "salir"')
+            opc = input('Que desea realizar?\n')
+
+            if opc == "1":
+                self.menuAdministrativo()
+            if opc == "2":
+                print('menu cliente')
+
     def menuCompra(self):
         print("Digite el numero sucursal en la que desea realizar la compra:   ")
         for su in range(len(self.listaSucursal)):
@@ -117,9 +131,8 @@ class Ferreteria:
         else:
             return f'Digito una opcion invalida'
 
-    def menuPrincipal(self):
+    def menuAdministrativo(self):
         opc = ""
-        print('\n\t\t\tBienvenido Amigo al Martillazo Feliz!!')
         while opc != "salir":
             print('\n\n1 - Agregar una sucursal')
             print('2 - Ver las sucursales')
@@ -130,12 +143,14 @@ class Ferreteria:
 
             if opc == "1":
                 self.ingresarSucursal()
-            if opc == "2":
+            elif opc == "2":
                 self.imprimirSucursal()
-            if opc == "3":
+            elif opc == "3":
                 self.eliminar()
-            if opc == "4":
+            elif opc == "4":
                 self.agregarEnSucursal()
+            else:
+                return f'Digito una opcion invalida'
 
     def ingresarSucursal(self):
         nombreSu = ""
