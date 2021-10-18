@@ -39,8 +39,10 @@ class Ferreteria:
             self.menu_sucursal(1)
         elif sucur == "2":
             self.menu_sucursal(2)
-        else:
+        elif sucur == "3":
             self.menu_sucursal(3)
+        else:
+            print("La sucursal aun no esta disponible")
 
     def menu_sucursal(self, n_su):
         n_su -= 1
@@ -108,7 +110,7 @@ class Ferreteria:
 
         if y == "1":  # si quiere comprar
             c = Cliente()
-            while seguir:
+            while seguir:  # mientras quiera comprar escoge de la misma categoria
                 print(cual.muestra_tops())
                 print("Digite el numero del procuto que quiere comprar: ")
                 p = input()
@@ -134,15 +136,17 @@ class Ferreteria:
                     return f'Digito una opcion invalida'
 
                 if op3 == "1":
-                    self.menu_sucursal(n_su)
+                    seguir = True
                 elif op3 == "2":
+                    seguir = False
                     self.listaSucursal[n_su].atiende_cliente(c)  # cliente pasa a la caja por su factura
                     self.menuCompra()
 
         elif y == "2":
             self.menuCompra()
         else:
-            return f'Digito una opcion invalida'
+            print(f'Digito una opcion invalida')
+            self.menuCompra()
 
     def menuAdministrativo(self):
         opc = ""
