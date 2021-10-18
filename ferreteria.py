@@ -84,6 +84,7 @@ class Ferreteria:
 
     def compra(self, n_su, cual):
         p1 = False
+        seguir = True
         print("Desea comprar un producto?")
         print("1. Si        2. No")
         y = input()
@@ -93,18 +94,22 @@ class Ferreteria:
 
         if y == "1":  # si quiere comprar
             c = Cliente()
-            print(cual.muestra_tops())
-            print("Digite el numero del procuto que quiere comprar: ")
-            p = input()
+            while seguir:
+                print(cual.muestra_tops())
+                print("Digite el numero del procuto que quiere comprar: ")
+                p = input()
 
-            if not p.isdigit():
-                return f'Digito una opcion invalida'
+                if not p.isdigit():
+                    return f'Digito una opcion invalida'
 
-            if p == "1":
-                c.agregar_producto_carrito(cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
-                p1 = True
-            elif p == "2" and p1 is not True:
-                c.agregar_producto_carrito(cual.producto2.sacar())
+                if p == "1":
+                    c.agregar_producto_carrito(
+                        cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
+                    p1 = True
+                elif p == "2" and p1 is not True:
+                    c.agregar_producto_carrito(
+                        cual.producto2.sacar())  # aniade producto al carrito de la pila de productos
+
 
 
         elif y == "2":
