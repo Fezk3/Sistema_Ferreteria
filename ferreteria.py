@@ -125,13 +125,13 @@ class Ferreteria:
         if y == "1":  # si quiere comprar
             c = Cliente()
             while seguir:  # mientras quiera comprar escoge de la misma categoria
-                while p.isdigit() is not True:
-                    print(cual.muestra_tops())
-                    print("Digite el numero del procuto que quiere comprar: ")
-                    p = input()
 
-                    if not p.isdigit():
-                        print(f'Digito una opcion invalida')
+                print(cual.muestra_tops())
+                print("Digite el numero del procuto que quiere comprar: ")
+                p = input()
+
+                if not p.isdigit():
+                    print(f'Digito una opcion invalida')
 
                 if p == "1":
                     c.agregar_producto_carrito(cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
@@ -142,14 +142,14 @@ class Ferreteria:
                     print("Opcion invalida")
                     self.menuCompra()
 
-                #  desea seguir comprando?
-                while op3.isdigit() is not True:
-                    print("Desea seguir comprando?")
-                    print("1. Si        2. No")
-                    op3 = input()
+                    #  desea seguir comprando?
 
-                    if not op3.isdigit():
-                        print(f'Digito una opcion invalida')
+                print("Desea seguir comprando?")
+                print("1. Si        2. No")
+                op3 = input()
+
+                if not op3.isdigit():
+                    print(f'Digito una opcion invalida')
 
                 if op3 == "1":
                     seguir = True
@@ -424,31 +424,10 @@ class Ferreteria:
         sucursal2 = Sucursal('Heredia', 2)
         sucursal3 = Sucursal('Cartago', 3)
 
-        seccion = Seccion('Madera',0)
-        tipo = tipoProducto('Tabla')
-        tipo2 = tipoProducto('Puerta')
-        tipo.llena_producto1('tablaPino')
-        tipo.llena_producto2('tablaRoble')
-        tipo2.llena_producto1('puertaPino')
-        tipo2.llena_producto2('puertaRoble')
-        seccion.agregarProducto(tipo)
-        seccion.agregarProducto(tipo2)
-        seccion2 = Seccion('Hierro',1)
-        tipo3 = tipoProducto('Perlin')
-        tipo3.llena_producto1('perlin')
-        seccion2.agregarProducto(tipo3)
-
         for n in range(3):
             if n == 0:
-                sucursal.agregaSeccion(seccion)
-                sucursal.agregaSeccion(seccion2)
                 self.listaSucursal.append(sucursal)
             elif n == 1:
-                sucursal2.agregaSeccion(seccion)
-                sucursal2.agregaSeccion(seccion2)
                 self.listaSucursal.append(sucursal2)
-
             else:
-                sucursal3.agregaSeccion(seccion)
-                sucursal3.agregaSeccion(seccion2)
                 self.listaSucursal.append(sucursal3)

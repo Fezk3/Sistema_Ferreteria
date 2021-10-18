@@ -3,6 +3,8 @@ from seccion import Seccion
 from cola_clientes import ColaClientes
 from time import sleep
 from factura import Factura
+from sucursal import Seccion
+from seccion import tipoProducto
 
 class Sucursal:
     def __init__(self, ubicacion, numero):
@@ -10,6 +12,24 @@ class Sucursal:
         self.ubicacion = ubicacion
         self.listaSeccion = ListaDobleCircular()
         self.caja = ColaClientes()  # ya tiene un cliente dentro
+
+        # atributos de todo
+        self.seccion = Seccion('Madera',0)
+        self.tipo = tipoProducto('Tabla')
+        self.tipo2 = tipoProducto('Puerta')
+        self.tipo.llena_producto1('tablaPino')
+        self.tipo.llena_producto2('tablaRoble')
+        self.tipo2.llena_producto1('puertaPino')
+        self.tipo2.llena_producto2('puertaRoble')
+        self.seccion.agregarProducto(self.tipo)
+        self.seccion.agregarProducto(self.tipo2)
+        self.seccion2 = Seccion('Hierro',1)
+        self.tipo3 = tipoProducto('Perlin')
+        self.tipo3.llena_producto1('perlin')
+        self.seccion2.agregarProducto(self.tipo3)
+
+        self.agregaSeccion(self.seccion)
+        self.agregaSeccion(self.seccion2)
 
     def __repr__(self):
         salida = ''
