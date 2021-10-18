@@ -8,6 +8,7 @@ class Ferreteria:
     def __init__(self):
         self.listaSucursal = []
         self.cont = 0
+        self.sucursalesPorDefecto()
 
     def menuPrincipal(self):
         opc = ""
@@ -21,7 +22,7 @@ class Ferreteria:
             if opc == "1":
                 self.menuAdministrativo()
             if opc == "2":
-                print('menu cliente')
+                self.menuCompra()
 
     def menuCompra(self):
         sucur = ""
@@ -212,8 +213,9 @@ class Ferreteria:
                 tipo = ""
                 tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
                 tipoP = tipoProducto(tipo)
+                '''
                 ciclo3 = ""
-
+                
                 ciclo3 = input("Cuantos productos desea agregar: ")
                 if not ciclo3.isdigit():
                     return f'Digito una opcion invalida'
@@ -238,6 +240,7 @@ class Ferreteria:
 
                     tipoP.agregaPila()
                     k+=1
+                    '''
                 j -= 1
                 seccion.agregarProducto(tipoP)
 
@@ -412,7 +415,7 @@ class Ferreteria:
         tipo = ""
         tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
         tipoP = tipoProducto(tipo)
-
+        '''
         ciclo3 = input("Cuantos productos desea agregar: ")
         if not ciclo3.isdigit():
             return f'Digito una opcion invalida'
@@ -437,7 +440,7 @@ class Ferreteria:
 
             tipoP.agregaPila()
             k += 1
-
+        '''
         self.listaSucursal[int(opc)].retornarSeccion(int(pos)).agregarProductoEspecifico(tipoP,int(index))
         return f'Tipo de producto guardado exitosamente'
 
