@@ -1,6 +1,8 @@
 from lista_doble_C import ListaDobleCircular
 from seccion import Seccion
 from cola_clientes import ColaClientes
+from time import sleep
+from factura import Factura
 
 class Sucursal:
     def __init__(self, ubicacion, numero):
@@ -29,3 +31,14 @@ class Sucursal:
 
     def muestra_secciones(self):
         print(f" {self.listaSeccion}\n")
+
+    def atiende_cliente(self, cliente):
+        factura = Factura()
+        print("Esperando a que el cliente de adelante termine de ser atendido")
+        sleep(8)
+        for n in range(self.caja.get_tamanio()):  # por cada cliente en la cola
+            factura.recibe_item_comprado(cliente.saca_producto_carrito())  # saca del carrito y aniade a factura
+        factura.guarda_en_archivo()
+        print("Factura generada: ")
+        factura.muestra_factura()
+
