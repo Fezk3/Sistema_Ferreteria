@@ -110,10 +110,11 @@ class Ferreteria:
                     c.agregar_producto_carrito(
                         cual.producto2.sacar())  # aniade producto al carrito de la pila de productos
 
-
+            #  desea seguir comprando?
 
         elif y == "2":
-            return self.menu_sucursal(n_su)  # se devuelve al menu principal de la sucursal
+            #  return self.menu_sucursal(n_su)  # se devuelve al menu principal de la sucursal
+            pass
         else:
             return f'Digito una opcion invalida'
 

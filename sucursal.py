@@ -1,12 +1,13 @@
 from lista_doble_C import ListaDobleCircular
 from seccion import Seccion
-
+from cola_clientes import ColaClientes
 
 class Sucursal:
     def __init__(self, ubicacion, numero):
         self.id = numero
         self.ubicacion = ubicacion
         self.listaSeccion = ListaDobleCircular()
+        self.caja = ColaClientes()  # ya tiene un cliente dentro
 
     def __repr__(self):
         salida = ''
