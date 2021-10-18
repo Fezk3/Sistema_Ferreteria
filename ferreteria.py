@@ -46,6 +46,7 @@ class Ferreteria:
             self.menu_sucursal(3)
         else:
             print("La sucursal aun no esta disponible")
+            self.menuCompra()
 
     def menu_sucursal(self, n_su):
         n_su -= 1
