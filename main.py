@@ -7,22 +7,12 @@ from seccion import Seccion
 
 if __name__ == '__main__':
 
-
+    '''
+        
+        Integrantes: Emanuel Soto Leal
+                     Victor Segura Pereira
+    
+    '''
 
     ferre = Ferreteria()
-
-    #ferre.sucursalPorDefecto()
     ferre.menuPrincipal()
-    ferre.sucursalesPorDefecto()  # llenando la sucursal
-    ferre.menuCompra()
-
-'''
-    sec = Seccion("Madera", 4)
-    sec.llena_tipo_producto()
-    sec.muestra_tipo()
-'''
-
-
-
-
-

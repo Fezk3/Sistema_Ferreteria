@@ -11,26 +11,31 @@ class Ferreteria:
         self.sucursalesPorDefecto()
 
     def menuPrincipal(self):
-        opc = ""
+        opc = ''
         print('\n\t\t\tBienvenido Amigo al Martillazo Feliz!!')
         while opc != "salir":
             print('1 - Menu Administrativo')
             print('2 - Menu de Cliente')
-            print('Para salir digite "salir"')
+            print('3 - Para salir ')
             opc = input('Que desea realizar?\n')
 
             if opc == "1":
                 self.menuAdministrativo()
             if opc == "2":
                 self.menuCompra()
+            if opc == "3":
+                print("Gracias por visitarnos!")
+                exit(0)
+
 
     def menuCompra(self):
         sucur = ""
 
         while sucur.isdigit() is not True:
             print("Digite el numero sucursal en la que desea realizar la compra:   ")
+            print("1. Salir")
             for su in range(len(self.listaSucursal)):
-                print(f"{su + 1}. Sucarsal de {self.listaSucursal[su].ubicacion}")
+                print(f"{su + 2}. Sucarsal de {self.listaSucursal[su].ubicacion}")
             sucur = input()
 
             if not sucur.isdigit():
@@ -38,12 +43,13 @@ class Ferreteria:
 
         #if int(sucur) > len(self.listaSucursal):
         #    return f'Digito una opcion invalida'
-
         if sucur == "1":
-            self.menu_sucursal(1)
+            self.menuPrincipal()
         elif sucur == "2":
-            self.menu_sucursal(2)
+            self.menu_sucursal(1)
         elif sucur == "3":
+            self.menu_sucursal(2)
+        elif sucur == "4":
             self.menu_sucursal(3)
         else:
             print("La sucursal aun no esta disponible")
