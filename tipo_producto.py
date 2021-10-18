@@ -13,6 +13,7 @@ class tipoProducto:
         self.tipoP = tipoP
         self.producto1 = Pila()
         self.producto2 = Pila()
+        self.listaPilas = []
         #self.llena_producto1("puertaPino")
         #self.llena_producto2("puertaRoble")
 
@@ -31,12 +32,17 @@ class tipoProducto:
     def agregaProducto(self, producto):
         self.producto2.agreagar(producto)
 
+    def agregaPila(self):
+        self.listaPilas.append(self.producto2)
+        self.producto2 = Pila()
+
     def __repr__(self):
         string = ""
         string = f'Tipo de producto: {self.tipoP}\n\nProductos:'
-        string += f'{self.producto1.top()} Cantidad: {self.producto1.tamnaio()}\n'
-        if not self.producto2.esta_vacia():
-            string += f'{self.producto2.top()} Cantidad: {self.producto2.tamnaio()}\n\n'
+        #string += f'{self.producto1.top()} Cantidad: {self.producto1.tamnaio()}\n'
+        for pila in self.listaPilas:
+             if not pila.esta_vacia():
+                string += f'{pila.top()} Cantidad: {pila.tamnaio()}\n\n'
         return string
 
     def muestra_tops(self):

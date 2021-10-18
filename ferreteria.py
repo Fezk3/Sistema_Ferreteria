@@ -212,26 +212,33 @@ class Ferreteria:
                 tipo = ""
                 tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
                 tipoP = tipoProducto(tipo)
+                ciclo3 = ""
 
-                nom = ""
-                nom = input('Digite el nombre del producto\n')
-                precio =""
-                precio = input('Digite el precio de este producto\n')
-                if not precio.isdigit():
-                    return f'Digito una opcion invalida\n'
-                cant = ""
-                cant = input('Digite el stock de este producto\n')
-
-                if not cant.isdigit():
+                ciclo3 = input("Cuantos productos desea agregar: ")
+                if not ciclo3.isdigit():
                     return f'Digito una opcion invalida'
-                l = 0
-                while l < int(cant):
-                    producto = Producto(nom,l,precio)
-                    tipoP.agregaProducto(producto)
-                    l+=1
+                k = 0
+                while k<int(ciclo3):
+                    nom = ""
+                    nom = input('Digite el nombre del producto\n')
+                    precio =""
+                    precio = input('Digite el precio de este producto\n')
+                    if not precio.isdigit():
+                        return f'Digito una opcion invalida\n'
+                    cant = ""
+                    cant = input('Digite el stock de este producto\n')
+
+                    if not cant.isdigit():
+                        return f'Digito una opcion invalida'
+                    l = 0
+                    while l < int(cant):
+                        producto = Producto(nom,l,precio)
+                        tipoP.agregaProducto(producto)
+                        l+=1
+
+                    tipoP.agregaPila()
+                    k+=1
                 j -= 1
-
-
                 seccion.agregarProducto(tipoP)
 
             sucursal.agregaSeccion(seccion)
@@ -240,24 +247,27 @@ class Ferreteria:
         self.cont += 1
 
     def eliminar(self):
-        print('Que desea eliminar?')
-        print('1 -Sucursal')
-        print('2 -Seccion')
-        print('3 -Tipo de producto')
         opc = ""
-        opc = input("Elija una opcion: ")
+        while opc != "salir":
+            print('Que desea eliminar?')
+            print('1 -Sucursal')
+            print('2 -Seccion')
+            print('3 -Tipo de producto')
+            print('Para salir digite "salir"')
 
-        if not opc.isdigit():
-            return f'Digito una opcion invalida'
+            opc = input("Elija una opcion: ")
 
-        if opc == "1":
-            print(self.eliminarSucursal())
+            if not opc.isdigit():
+                return f'Digito una opcion invalida'
 
-        if opc == "2":
-            print(self.eliminarSeccion())
+            if opc == "1":
+                print(self.eliminarSucursal())
 
-        if opc == "3":
-            print(self.eliminarTipo())
+            if opc == "2":
+                print(self.eliminarSeccion())
+
+            if opc == "3":
+                print(self.eliminarTipo())
 
 
     def imprimirSucursal(self):
@@ -318,24 +328,27 @@ class Ferreteria:
         return f'Tipo de producto eliminado exitosamente'
 
     def agregarEnSucursal(self):
-        print('Que desea agregar?')
-        print('1 -Sucursal')
-        print('2 -Seccion')
-        print('3 -Tipo de producto')
         opc = ""
-        opc = input("Elija una opcion: ")
+        while opc != "salir":
+            print('Que desea agregar?')
+            print('1 -Sucursal')
+            print('2 -Seccion')
+            print('3 -Tipo de producto')
+            print('Para salir digite "salir"')
 
-        if not opc.isdigit():
-            return f'Digito una opcion invalida'
+            opc = input("Elija una opcion: ")
 
-        if opc == "1":
-            print(self.agregarSucursal())
+            if not opc.isdigit():
+                return f'Digito una opcion invalida'
 
-        if opc == "2":
-            print(self.agregarSeccion())
+            if opc == "1":
+                print(self.agregarSucursal())
 
-        if opc == "3":
-            print(self.agregarTipo())
+            if opc == "2":
+                print(self.agregarSeccion())
+
+            if opc == "3":
+                print(self.agregarTipo())
 
     def agregarSucursal(self):
         index = ""
@@ -400,22 +413,30 @@ class Ferreteria:
         tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
         tipoP = tipoProducto(tipo)
 
-        nom = ""
-        nom = input('Digite el nombre del producto\n')
-        precio = ""
-        precio = input('Digite el precio de este producto\n')
-        if not precio.isdigit():
-            return f'Digito una opcion invalida\n'
-        cant = ""
-        cant = input('Digite el stock de este producto\n')
-
-        if not cant.isdigit():
+        ciclo3 = input("Cuantos productos desea agregar: ")
+        if not ciclo3.isdigit():
             return f'Digito una opcion invalida'
-        l = 0
-        while l < int(cant):
-            producto = Producto(nom, l, precio)
-            tipoP.agregaProducto(producto)
-            l += 1
+        k = 0
+        while k < int(ciclo3):
+            nom = ""
+            nom = input('Digite el nombre del producto\n')
+            precio = ""
+            precio = input('Digite el precio de este producto\n')
+            if not precio.isdigit():
+                return f'Digito una opcion invalida\n'
+            cant = ""
+            cant = input('Digite el stock de este producto\n')
+
+            if not cant.isdigit():
+                return f'Digito una opcion invalida'
+            l = 0
+            while l < int(cant):
+                producto = Producto(nom, l, precio)
+                tipoP.agregaProducto(producto)
+                l += 1
+
+            tipoP.agregaPila()
+            k += 1
 
         self.listaSucursal[int(opc)].retornarSeccion(int(pos)).agregarProductoEspecifico(tipoP,int(index))
         return f'Tipo de producto guardado exitosamente'
@@ -427,6 +448,7 @@ class Ferreteria:
 
         for n in range(3):
             if n == 0:
+<<<<<<< HEAD
                 seccion = Seccion('Madera', 0)
                 tipo = tipoProducto('Tabla')
                 tipo2 = tipoProducto('Puerta')
@@ -440,6 +462,9 @@ class Ferreteria:
                 tipo3 = tipoProducto('Perlin')
                 tipo3.llena_producto1('perlin')
                 seccion2.agregarProducto(tipo3)
+=======
+                
+>>>>>>> 7e426d143226b300a5d7466247572b376b2d712d
                 sucursal.agregaSeccion(seccion)
                 sucursal.agregaSeccion(seccion2)
                 self.listaSucursal.append(sucursal)
