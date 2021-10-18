@@ -117,14 +117,24 @@ class Ferreteria:
                     return f'Digito una opcion invalida'
 
                 if p == "1":
-                    c.agregar_producto_carrito(
-                        cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
+                    c.agregar_producto_carrito(cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
                     p1 = True
                 elif p == "2" and p1 is not True:
-                    c.agregar_producto_carrito(
-                        cual.producto2.sacar())  # aniade producto al carrito de la pila de productos
+                    c.agregar_producto_carrito(cual.producto2.sacar())  # aniade producto al carrito de la pila de productos
 
-            #  desea seguir comprando?
+                #  desea seguir comprando?
+                print("Desea seguir comprando?")
+                print("1. Si        2. No")
+                op3 = input()
+
+                if not op3.isdigit():
+                    return f'Digito una opcion invalida'
+
+                if op3 == "1":
+                    self.menu_sucursal(n_su)
+                elif op3 == "2":
+                    self.listaSucursal[n_su].atiende_cliente(c)  # cliente pasa a la caja por su factura
+                    self.menuCompra()
 
         elif y == "2":
             #  return self.menu_sucursal(n_su)  # se devuelve al menu principal de la sucursal

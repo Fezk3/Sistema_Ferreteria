@@ -11,9 +11,10 @@ if __name__ == '__main__':
 
     ferre = Ferreteria()
 
-    ferre.sucursalPorDefecto()
-    ferre.menuPrincipal()
-    #ferre.menuCompra()
+    #ferre.sucursalPorDefecto()
+    #ferre.menuPrincipal()
+    ferre.sucursalPorDefecto()  # llenando la sucursal
+    ferre.menuCompra()
 
 '''
     sec = Seccion("Madera", 4)

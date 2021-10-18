@@ -6,7 +6,7 @@ class ColaClientes:
     def __init__(self):
         self.cola_clientes = []
         # esto para que cada cola de clientes tenga uno frente al user
-        c = Cliente("Carlos", "123")
+        c = Cliente()
         c.carrito.agreagar(Producto("Puerta Pino", "6", 90000))
         self.agregar_cliente(c)
 
