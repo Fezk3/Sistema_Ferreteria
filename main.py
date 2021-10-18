@@ -9,14 +9,15 @@ if __name__ == '__main__':
 
 
 
-    #ferre = Ferreteria()
+    ferre = Ferreteria()
+    ferre.sucursalPorDefecto()
     #ferre.menuPrincipal()
-    #ferre.menuCompra()
+    ferre.menuCompra()
 
 
-    sec = Seccion("Madera", 4)
-    sec.llena_tipo_producto()
-    sec.muestra_tipo()
+   # sec = Seccion("Madera", 4)
+    #sec.llena_tipo_producto()
+    #sec.muestra_tipo()
 
 
 

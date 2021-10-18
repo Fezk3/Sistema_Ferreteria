@@ -56,3 +56,6 @@ class Seccion:
 
         self.listaTipoProductos.agregar(tabla)  # tabla contiene las 2 pilas con las distintas tablas que hay
         self.listaTipoProductos.agregar(puerta)  # puerta contiene las 2 pilas con las distintas puertas que hay
+
+    def get_num_nomb(self):
+        return f'Numero: {self.numero}\ntipo: {self.nombre}'

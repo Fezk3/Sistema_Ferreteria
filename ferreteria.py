@@ -11,7 +11,7 @@ class Ferreteria:
 
     def menuCompra(self):
         print("Digite el numero sucursal en la que desea realizar la compra:   ")
-        for su in self.listaSucursal:
+        for su in range(len(self.listaSucursal)):
             print(f"1. Sucarsal de {self.listaSucursal[su].ubicacion}")
         sucur = input()
 
@@ -29,10 +29,11 @@ class Ferreteria:
             self.menu_sucursal(3)
 
     def menu_sucursal(self, n_su):
+        n_su -= 1
         print(f"Bienvenido a la sucursal de {self.listaSucursal[n_su].ubicacion}")
         print(f"Digite el numero de la seccion de la que desea ver los tipos de productos: ")
-        for sel in self.listaSucursal[n_su].listaSeccion.tamanio:  # en base al tamanio
-            print(f"Seccion de: {sel.retornarSeccion().nombre}")
+        for sel in range(self.listaSucursal[n_su].listaSeccion.tamanio):  # en base al tamanio
+            print(f"Seccion de: {self.listaSucursal[n_su].listaSeccion.get(sel)}")
         opci = input()
 
         if not opci.isdigit():
@@ -271,7 +272,7 @@ class Ferreteria:
         nombre = input('Ingrese la ubicacion de la sucursal')
         sucursal =Sucursal(nombre, self.cont)
         self.listaSucursal.append(sucursal)
-        cont+=1
+        self.cont+=1
 
     def agregarSeccion(self):
         self.imprimirSucursal()
@@ -294,3 +295,4 @@ class Ferreteria:
         seccion2.agregarProducto(tipo3)
         sucursal.agregaSeccion(seccion)
         sucursal.agregaSeccion(seccion2)
+        self.listaSucursal.append(sucursal)
