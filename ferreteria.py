@@ -161,8 +161,8 @@ class Ferreteria:
         elif y == "2":
             self.menuCompra()
         else:
-            print(f'Digito una opcion invalida')
-            self.menuCompra()
+            print(f'Digito una opcion invalida')  # vuelve al menu compra
+            self.compra(n_su, cual)
 
     def menuAdministrativo(self):
         opc = ""
