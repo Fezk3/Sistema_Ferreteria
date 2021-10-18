@@ -37,7 +37,7 @@ class Seccion:
 
         for n in range(self.listaTipoProductos.tamanio):
             t_p = self.listaTipoProductos.get(n)
-            print(f"1. {t_p.tipoP}")
+            print(f"{n+1}. {t_p.tipoP}")
 
     def llena_tipo_producto(self):
 

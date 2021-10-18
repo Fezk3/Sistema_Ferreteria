@@ -58,6 +58,8 @@ class Ferreteria:
             tabla = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Tabla')  # tablas
             print(f'Tablas disponibles: ')
             print(tabla.muestra_tops())
+            self.compra(n_su)
+        elif op2 == "2" and mad is not True:
             puerta = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Puerta')  # puertas
             print(f'\nPuertas disponibles: ')
             print(puerta.muestra_tops())
