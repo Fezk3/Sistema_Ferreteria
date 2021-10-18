@@ -50,14 +50,18 @@ class Ferreteria:
     def menu_sucursal(self, n_su):
         n_su -= 1
         mad = True
-        print(f"Bienvenido a la sucursal de {self.listaSucursal[n_su].ubicacion}")
-        print(f"Digite el numero de la seccion de la que desea ver los tipos de productos: ")
-        for n in range(self.listaSucursal[n_su].listaSeccion.tamanio):
-            print(f"{n+1}. {self.listaSucursal[n_su].listaSeccion.get(n).get_num_nomb()}")
-        opci = input()
+        opci = ""
+        op2 = ""
 
-        if not opci.isdigit():
-            return f'Digito una opcion invalida'
+        while opci.isdigit() is not True:
+            print(f"Bienvenido a la sucursal de {self.listaSucursal[n_su].ubicacion}")
+            print(f"Digite el numero de la seccion de la que desea ver los tipos de productos: ")
+            for n in range(self.listaSucursal[n_su].listaSeccion.tamanio):
+                print(f"{n + 1}. {self.listaSucursal[n_su].listaSeccion.get(n).get_num_nomb()}")
+            opci = input()
+
+            if not opci.isdigit():
+                print(f'Digito una opcion invalida')
 
         if opci == "1":
             self.mostrar_maderas(n_su)
@@ -65,13 +69,15 @@ class Ferreteria:
         elif opci == "2":
             self.mostrar_metales(n_su)
         else:
-            return f'Digito una opcion invalida'
+            print(f'Digito una opcion invalida')
+            self.menu_sucursal(n_su)
 
-        print("Digite el numero del que quiera ver sus productos especificos: ")
-        op2 = input()
+        while op2.isdigit() is not True:
+            print("Digite el numero del que quiera ver sus productos especificos: ")
+            op2 = input()
 
-        if not op2.isdigit():
-            return f'Digito una opcion invalida'
+            if not op2.isdigit():
+                print(f'Digito una opcion invalida')
 
         if op2 == "1" and mad is not True:  # TABLAS
             tabla = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Tabla')  # tablas
@@ -89,7 +95,8 @@ class Ferreteria:
             print(perlin.muestra_tops())
             self.compra(n_su, perlin)
         else:
-            return f'Digito una opcion invalida'
+            print(f'Digito una opcion invalida')
+            self.menu_sucursal(n_su)
 
     def mostrar_maderas(self, n_su):  # muestra los tipos de producto
         maderas = self.listaSucursal[n_su].listaSeccion.get(0)
@@ -104,22 +111,27 @@ class Ferreteria:
     def compra(self, n_su, cual):
         p1 = False
         seguir = True
-        print("Desea comprar un producto?")
-        print("1. Si        2. No")
-        y = input()
+        y = ''
+        p = ''
+        op3 = ''
+        while y.isdigit() is not True:
+            print("Desea comprar un producto?")
+            print("1. Si        2. No")
+            y = input()
 
-        if not y.isdigit():
-            return f'Digito una opcion invalida'
+            if not y.isdigit():
+                print(f'Digito una opcion invalida')
 
         if y == "1":  # si quiere comprar
             c = Cliente()
             while seguir:  # mientras quiera comprar escoge de la misma categoria
-                print(cual.muestra_tops())
-                print("Digite el numero del procuto que quiere comprar: ")
-                p = input()
+                while p.isdigit() is not True:
+                    print(cual.muestra_tops())
+                    print("Digite el numero del procuto que quiere comprar: ")
+                    p = input()
 
-                if not p.isdigit():
-                    return f'Digito una opcion invalida'
+                    if not p.isdigit():
+                        print(f'Digito una opcion invalida')
 
                 if p == "1":
                     c.agregar_producto_carrito(cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
@@ -131,12 +143,13 @@ class Ferreteria:
                     self.menuCompra()
 
                 #  desea seguir comprando?
-                print("Desea seguir comprando?")
-                print("1. Si        2. No")
-                op3 = input()
+                while op3.isdigit() is not True:
+                    print("Desea seguir comprando?")
+                    print("1. Si        2. No")
+                    op3 = input()
 
-                if not op3.isdigit():
-                    return f'Digito una opcion invalida'
+                    if not op3.isdigit():
+                        print(f'Digito una opcion invalida')
 
                 if op3 == "1":
                     seguir = True
