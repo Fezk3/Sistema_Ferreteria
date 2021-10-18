@@ -213,7 +213,7 @@ class Ferreteria:
                 tipoP = tipoProducto(tipo)
                 ciclo3 = ""
 
-                ciclo3 = input("Cuantos tipos de productos desea agregar: ")
+                ciclo3 = input("Cuantos productos desea agregar: ")
                 if not ciclo3.isdigit():
                     return f'Digito una opcion invalida'
                 k = 0
@@ -406,22 +406,30 @@ class Ferreteria:
         tipo = input("Digite el nombre de tipo de productos que desea agregar:\n")
         tipoP = tipoProducto(tipo)
 
-        nom = ""
-        nom = input('Digite el nombre del producto\n')
-        precio = ""
-        precio = input('Digite el precio de este producto\n')
-        if not precio.isdigit():
-            return f'Digito una opcion invalida\n'
-        cant = ""
-        cant = input('Digite el stock de este producto\n')
-
-        if not cant.isdigit():
+        ciclo3 = input("Cuantos productos desea agregar: ")
+        if not ciclo3.isdigit():
             return f'Digito una opcion invalida'
-        l = 0
-        while l < int(cant):
-            producto = Producto(nom, l, precio)
-            tipoP.agregaProducto(producto)
-            l += 1
+        k = 0
+        while k < int(ciclo3):
+            nom = ""
+            nom = input('Digite el nombre del producto\n')
+            precio = ""
+            precio = input('Digite el precio de este producto\n')
+            if not precio.isdigit():
+                return f'Digito una opcion invalida\n'
+            cant = ""
+            cant = input('Digite el stock de este producto\n')
+
+            if not cant.isdigit():
+                return f'Digito una opcion invalida'
+            l = 0
+            while l < int(cant):
+                producto = Producto(nom, l, precio)
+                tipoP.agregaProducto(producto)
+                l += 1
+
+            tipoP.agregaPila()
+            k += 1
 
         self.listaSucursal[int(opc)].retornarSeccion(int(pos)).agregarProductoEspecifico(tipoP,int(index))
         return f'Tipo de producto guardado exitosamente'
