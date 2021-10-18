@@ -448,7 +448,6 @@ class Ferreteria:
 
         for n in range(3):
             if n == 0:
-<<<<<<< HEAD
                 seccion = Seccion('Madera', 0)
                 tipo = tipoProducto('Tabla')
                 tipo2 = tipoProducto('Puerta')
@@ -462,9 +461,6 @@ class Ferreteria:
                 tipo3 = tipoProducto('Perlin')
                 tipo3.llena_producto1('perlin')
                 seccion2.agregarProducto(tipo3)
-=======
-                
->>>>>>> 7e426d143226b300a5d7466247572b376b2d712d
                 sucursal.agregaSeccion(seccion)
                 sucursal.agregaSeccion(seccion2)
                 self.listaSucursal.append(sucursal)
