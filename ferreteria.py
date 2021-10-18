@@ -119,8 +119,11 @@ class Ferreteria:
                 if p == "1":
                     c.agregar_producto_carrito(cual.producto1.sacar())  # aniade producto al carrito de la pila de productos
                     p1 = True
-                elif p == "2" and p1 is not True:
+                elif p == "2" and p1 is not True and cual.producto2.esta_vacia() is not True:
                     c.agregar_producto_carrito(cual.producto2.sacar())  # aniade producto al carrito de la pila de productos
+                else:
+                    print("Opcion invalida")
+                    self.menuCompra()
 
                 #  desea seguir comprando?
                 print("Desea seguir comprando?")
@@ -137,8 +140,7 @@ class Ferreteria:
                     self.menuCompra()
 
         elif y == "2":
-            #  return self.menu_sucursal(n_su)  # se devuelve al menu principal de la sucursal
-            pass
+            self.menuCompra()
         else:
             return f'Digito una opcion invalida'
 

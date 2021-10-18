@@ -37,11 +37,10 @@ class Sucursal:
         print("Esperando a que el cliente de adelante termine de ser atendido")
         self.caja.agregar_cliente(cliente)
         sleep(8)
-        for n in range(self.caja.get_tamanio()):  # por cada cliente en la cola
-            c = self.caja.sacar_cliente()
-            for m in range(c.carrito.tamnaio()):
-                factura.recibe_item_comprado(c.saca_producto_carrito())  # saca del carrito y aniade a factura
-        print("Factura generada: ")
-        factura.muestra_factura()
-        factura.guarda_en_archivo()
-
+        for cl in self.caja.cola_clientes:  # por cada cliente en la cola
+            factura.recibe_item_comprado(cl.saca_producto_carrito())  # saca del carrito y aniade a factura
+            print("Factura generada: ")
+            factura.muestra_factura()
+            factura.guarda_en_archivo()
+        self.caja.sacar_cliente()
+        self.caja.sacar_cliente()

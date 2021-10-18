@@ -14,7 +14,8 @@ class ColaClientes:
         self.cola_clientes.append(clien)
 
     def sacar_cliente(self):
-        self.cola_clientes.pop(0)
+        if self.esta_vacia() is not True:
+            self.cola_clientes.pop(0)
 
     def esta_vacia(self):
         return self.cola_clientes == []

@@ -10,7 +10,8 @@ class Pila:
         self.items.insert(0, item)
 
     def sacar(self):
-        return self.items.pop()
+        if self.esta_vacia() is not True:
+            return self.items.pop()
 
     def tamnaio(self):
         return len(self.items)
