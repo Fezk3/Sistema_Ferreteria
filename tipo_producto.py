@@ -32,8 +32,7 @@ class tipoProducto:
     def __repr__(self):
         string=""
         string = f'Tipo de producto: {self.tipoP}\n\nProductos:'
-
-        string+= f'{self.producto2.top()} Cantidad: {self.producto2.tamnaio()}\n'
+        string+= f'{self.producto2.top()} Cantidad: {self.producto2.tamnaio()}\n\n'
         return string
 '''
     Ejp:

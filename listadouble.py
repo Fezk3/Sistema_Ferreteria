@@ -92,9 +92,11 @@ class ListaDobleEnlazada:
 
         string += f"\nLista:\n\n{self.ini.dato}"
         inicial = self.ini.sig
+        num=0
         while inicial is not None:
-            string += f"{inicial.dato}"
+            string += f'{inicial.dato}'
             inicial = inicial.sig
+            num+=1
         return string
 
     def get(self, num):  # retorna el objeto de una posicion dada, mientras esta sea valida
