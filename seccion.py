@@ -27,7 +27,7 @@ class Seccion:
         return tam
 
     def retornaTipo(self, tipo):
-        for n in self.listaTipoProductos.tamanio:
+        for n in range(self.listaTipoProductos.tamanio):
             if tipo is self.listaTipoProductos.get(n).tipoP:
                 return self.listaTipoProductos.get(n)
         else:
@@ -37,9 +37,15 @@ class Seccion:
 
         for n in range(self.listaTipoProductos.tamanio):
             t_p = self.listaTipoProductos.get(n)
-            print(f"{t_p.tipoP}")
+            print(f"1. {t_p.tipoP}")
 
     def llena_tipo_producto(self):
+
+        if self.nombre == "Hierro":
+            perlin = tipoProducto("Perlin")
+            perlin.llena_producto1("perlin")
+            self.listaTipoProductos.agregar(perlin)
+            return
 
         tabla = tipoProducto("Tabla")
         tabla.llena_producto1("tablaPino")
@@ -49,13 +55,8 @@ class Seccion:
         puerta.llena_producto1("puertaPino")
         puerta.llena_producto2("puertaRoble")
 
-        if self.nombre == "Hierro":
-            perlin = tipoProducto("Perlin")
-            perlin.llena_producto1("perlin")
-            self.listaTipoProductos.agregar(perlin)
-
         self.listaTipoProductos.agregar(tabla)  # tabla contiene las 2 pilas con las distintas tablas que hay
         self.listaTipoProductos.agregar(puerta)  # puerta contiene las 2 pilas con las distintas puertas que hay
 
     def get_num_nomb(self):
-        return f'Numero: {self.numero}\ntipo: {self.nombre}'
+        return f'Seccion de: {self.nombre}'

@@ -30,10 +30,11 @@ class Ferreteria:
 
     def menu_sucursal(self, n_su):
         n_su -= 1
+        mad = True
         print(f"Bienvenido a la sucursal de {self.listaSucursal[n_su].ubicacion}")
         print(f"Digite el numero de la seccion de la que desea ver los tipos de productos: ")
-        for sel in range(self.listaSucursal[n_su].listaSeccion.tamanio):  # en base al tamanio
-            print(f"Seccion de: {self.listaSucursal[n_su].listaSeccion.get(sel)}")
+        for n in range(self.listaSucursal[n_su].listaSeccion.tamanio):
+            print(f"{n+1}. {self.listaSucursal[n_su].listaSeccion.get(n).get_num_nomb()}")
         opci = input()
 
         if not opci.isdigit():
@@ -41,6 +42,7 @@ class Ferreteria:
 
         if opci == "1":
             self.mostrar_maderas(n_su)
+            mad = False
         elif opci == "2":
             self.mostrar_metales(n_su)
         else:
@@ -52,18 +54,18 @@ class Ferreteria:
         if not op2.isdigit():
             return f'Digito una opcion invalida'
 
-        if op2 == "1":
-            tabla = self.listaSucursal[n_su].listaSeccion.retornaTipo("Tabla")  # tablas
+        if op2 == "1" and mad is not True:
+            tabla = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Tabla')  # tablas
             print(f'Tablas disponibles: ')
-            print(tabla)
-            puerta = self.listaSucursal[n_su].listaSeccion.retornaTipo("Tabla")  # puertas
+            print(tabla.muestra_tops())
+            puerta = self.listaSucursal[n_su].listaSeccion.get(0).retornaTipo('Puerta')  # puertas
             print(f'\nPuertas disponibles: ')
-            print(puerta)
+            print(puerta.muestra_tops())
             self.compra(n_su)
-        elif op2 == "2":  # puertas
-            perlin = self.listaSucursal[n_su].listaSccion.retornaTipo("Hierro")  # perlins
+        elif op2 == "1" and mad is True:  # puertas
+            perlin = self.listaSucursal[n_su].listaSeccion.get(1).retornaTipo('Perlin')   # retornaTipo("Hierro")  # perlins
             print(f'Perlins disponibles: ')
-            print(perlin)
+            print(perlin.muestra_tops())
             self.compra(n_su)
         else:
             return f'Digito una opcion invalida'
@@ -288,10 +290,15 @@ class Ferreteria:
         seccion = Seccion('Madera',0)
         tipo = tipoProducto('Tabla')
         tipo2 = tipoProducto('Puerta')
+        tipo.llena_producto1('tablaPino')
+        tipo.llena_producto2('tablaRoble')
+        tipo2.llena_producto1('puertaPino')
+        tipo2.llena_producto2('puertaRoble')
         seccion.agregarProducto(tipo)
         seccion.agregarProducto(tipo2)
         seccion2 = Seccion('Hierro',1)
         tipo3 = tipoProducto('Perlin')
+        tipo3.llena_producto1('perlin')
         seccion2.agregarProducto(tipo3)
         sucursal.agregaSeccion(seccion)
         sucursal.agregaSeccion(seccion2)

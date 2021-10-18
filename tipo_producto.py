@@ -35,8 +35,15 @@ class tipoProducto:
         string = ""
         string = f'Tipo de producto: {self.tipoP}\n\nProductos:'
         string += f'{self.producto1.top()} Cantidad: {self.producto1.tamnaio()}\n'
-        if self.producto2 is not self.producto2.esta_vacia():
+        if not self.producto2.esta_vacia():
             string += f'{self.producto2.top()} Cantidad: {self.producto2.tamnaio()}\n'
+        return string
+
+    def muestra_tops(self):
+        string = ''
+        string += f"{self.producto1.top()}\n"
+        if self.producto2.esta_vacia() is not True:
+            string += f"{self.producto2.top()}\n"
         return string
 '''
     Ejp:

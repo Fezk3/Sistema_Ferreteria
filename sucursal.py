@@ -26,4 +26,5 @@ class Sucursal:
     def retornarSeccion(self, indice):
         return self.listaSeccion.get(indice)
 
-
+    def muestra_secciones(self):
+        print(f" {self.listaSeccion}\n")
