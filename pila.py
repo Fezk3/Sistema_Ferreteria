@@ -17,4 +17,6 @@ class Pila:
         return len(self.items)
 
     def top(self):
-        return self.items[0]
+        if self.esta_vacia() is not True:
+            return self.items[0]
+        return f'Vacio'
